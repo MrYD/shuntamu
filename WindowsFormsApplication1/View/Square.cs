@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using DxLibDLL;
 
-namespace shuntamu
+namespace shuntamu.View
 {
-    class square:DrawableObject
+    class Square:IDrawable
     {
         public Size Top { get; set; }
         public Size Size { get; set; }
         public Size Bottom { get { return Top + Size; } }
         
-        public square(Size top, Size size)
+        public Square(Size top, Size size)
         {
             Top = top;
             Size = size;
