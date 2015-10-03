@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace shuntamu.View
 {
-    class MainCharactor : Square
+    class MainCharactor : Character
     {
         public MainCharactor()
             : base(new Size(100, 0), new Size(50, 100))
