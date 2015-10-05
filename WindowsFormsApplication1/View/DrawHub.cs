@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace shuntamu.View
 {
-    abstract class DrawHub:IDrawable
+    abstract class DrawHub: List<IDrawable>,IDrawable
     {
         public void Draw()
         {
-            throw new NotImplementedException();
+            foreach (var Itr in this)
+            {
+                Itr.Draw();
+            }
+            ;
         }
+
     }
 }

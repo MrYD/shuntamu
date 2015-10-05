@@ -15,7 +15,7 @@ namespace shuntamu.View
             Size = size;
         }
 
-        public  void Draw()
+        public virtual void Draw()
         {
             DX.DrawBox(Top.Width, Top.Height, (Top+Size).Width,(Top+Size).Height , DX.GetColor(0, 0, 255), DX.TRUE);
         }
