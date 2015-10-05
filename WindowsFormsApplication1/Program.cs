@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DxLibDLL;
 using shuntamu.View;
+using shuntamu.View.AutumnGround;
 
 namespace shuntamu
 {
@@ -24,23 +25,13 @@ namespace shuntamu
             DX.SetGraphMode(800, 600, 32);
             if (DX.DxLib_Init() == -1) return;
             DX.SetDrawScreen(DX.DX_SCREEN_BACK);
-            
-            Square floor=new Square(new Size(0,500), new Size(800,100));
-            MainCharactor mario=new MainCharactor();
-            var DrawableList=new List<IDrawable>();
-            DrawableList.Add(floor);
-            DrawableList.Add(mario);
-            var World=new List<Square>();
-            World.Add(floor);
+            var view = new View.View();
 
             while (DX.ScreenFlip() == 0 && DX.ProcessMessage() == 0 && DX.ClearDrawScreen() == 0)
             {
-                //DX.DrawString(400, 300, "hello World", DX.GetColor(255, 255, 255));
-                mario.Updata(World);
-                foreach (var Obj in DrawableList)
-                {
-                    Obj.Draw();
-                }
+
+                view.Update();
+                view.Draw();
             }
             DX.DxLib_End();
         }

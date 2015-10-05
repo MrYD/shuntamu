@@ -8,5 +8,14 @@ namespace shuntamu.View.Menu
 {
     class MenuMode:Mode
     {
+        public override void Draw()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

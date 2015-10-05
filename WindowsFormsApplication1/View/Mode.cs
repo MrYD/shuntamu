@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace shuntamu.View
 {
-    abstract class Mode : DrawHub
+    abstract class Mode
     {
+        public abstract void Draw();
 
+        public abstract void Update();
+      
     }
 }
