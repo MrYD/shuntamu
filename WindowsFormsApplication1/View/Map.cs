@@ -11,7 +11,7 @@ namespace shuntamu.View
     {
         public void Draw()
         {
-            foreach (var Itr in this)
+            foreach (Square Itr in this)
             {
                 Itr.Draw();
             }
