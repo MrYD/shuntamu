@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DxLibDLL;
+using shuntamu.Util;
 using shuntamu.View;
 
 namespace shuntamu
@@ -36,6 +37,7 @@ namespace shuntamu
             while (DX.ScreenFlip() == 0 && DX.ProcessMessage() == 0 && DX.ClearDrawScreen() == 0)
             {
                 //DX.DrawString(400, 300, "hello World", DX.GetColor(255, 255, 255));
+                if (Input.Instance.Right)
                 mario.Updata(World);
                 foreach (var Obj in DrawableList)
                 {

@@ -12,7 +12,7 @@ namespace shuntamu.View
 
         public void Updata(List<Square> world)
         {
-            Size distance = new Size(10,10);
+            Size distance = new Size(0,10);
             bool hitflag = false;
             foreach (var Obj in world)
             {
