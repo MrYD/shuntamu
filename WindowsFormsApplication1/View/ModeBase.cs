@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace shuntamu.View
+﻿namespace shuntamu.View
 {
     /// <summary>
     /// ゲームモード の 基底クラス

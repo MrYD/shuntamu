@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using shuntamu.Util;
 
-namespace shuntamu.View
+namespace shuntamu.View.AutumnGround.Charactors
 {
     class MainCharactor : MotionObject
     {

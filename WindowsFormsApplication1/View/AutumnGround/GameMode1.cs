@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using shuntamu.View.AutumnGround.Charactors;
 
 namespace shuntamu.View.AutumnGround
 {

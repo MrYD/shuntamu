@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using shuntamu.View.AutumnGround;
+﻿using shuntamu.View.AutumnGround;
 
 namespace shuntamu.View
 {
@@ -12,19 +7,19 @@ namespace shuntamu.View
     /// </summary>
     class View
     {
-        private readonly ModeBase[] modes;
+        private readonly ModeBase[] _modes;
         public int ModeNumber { get; set; }
 
         public View()
         {
-            modes = new ModeBase[1];
+            _modes = new ModeBase[1];
             ModeNumber = 0;
-            modes[0] = new GameMode1();
+            _modes[0] = new GameMode1();
         }
 
         public ModeBase CurrentMode
         {
-            get { return modes[ModeNumber]; }
+            get { return _modes[ModeNumber]; }
         }
 
         internal void Update()
