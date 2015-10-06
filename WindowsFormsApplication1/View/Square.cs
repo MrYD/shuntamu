@@ -18,7 +18,8 @@ namespace shuntamu.View
 
         public Size Size { get; set; }
         public Point Bottom { get { return Top + Size; } }
-
+        public Point RightTop { get { return Top + new Size(Size.Width, 0); } }
+        public Point LeftBottom { get { return Top + new Size(0, Size.Height); } }
         public Square(Point top, Size size)
         {
             Top = top;

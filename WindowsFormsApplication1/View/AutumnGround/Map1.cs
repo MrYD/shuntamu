@@ -9,7 +9,7 @@ namespace shuntamu.View.AutumnGround
         {
 
             var floor = new MotionlessObject(new Point(0, 500), new Size(1000, 100));
-            var floor2 = new MotionlessObject(new Point(500, 0), new Size(100, 2000));
+            var floor2 = new MotionlessObject(new Point(500, 20), new Size(100, 2000));
             AddElement(floor);
             AddElement(floor2);
         }

@@ -24,7 +24,8 @@ namespace shuntamu.View
         }
         public static bool CheckHit(Square a, Square b)
         {
-            return CheckHit(a.Top, b) || CheckHit(a.Bottom, b) || CheckHit(b.Top, a) || CheckHit(b.Bottom, a);
+            return CheckHit(a.Top, b) || CheckHit(a.Bottom, b) || CheckHit(a.LeftBottom, b) || CheckHit(a.RightTop, b) ||
+                   CheckHit(b.Top, a) || CheckHit(b.Bottom, a) || CheckHit(b.LeftBottom, a) || CheckHit(b.RightTop, a);
         }
 
         public static bool CheckHit(Point p, Square b)

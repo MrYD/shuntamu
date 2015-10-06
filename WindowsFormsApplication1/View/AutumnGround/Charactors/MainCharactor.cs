@@ -29,6 +29,10 @@ namespace shuntamu.View.AutumnGround.Charactors
             {
                 distancey = -2;
             }
+            else if(Input.Instance.Down)
+            {
+                distancey = -10;
+            }
             else
             {
                 distancex = 0;
