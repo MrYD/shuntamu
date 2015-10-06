@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace shuntamu.View
 {
-    abstract class Mode
+    /// <summary>
+    /// ゲームモード の 基底クラス
+    /// </summary>
+    abstract class ModeBase
     {
         public abstract void Draw();
 
         public abstract void Update();
-      
     }
 }

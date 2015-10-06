@@ -7,7 +7,7 @@ namespace shuntamu.View
     class MainCharactor : MotionObject
     {
         public MainCharactor()
-            : base(new Size(100, 0), new Size(50, 100))
+            : base(new Point(100, 0), new Size(50, 100))
         {
          
         }
@@ -15,7 +15,7 @@ namespace shuntamu.View
         private int distancex;
         private int distancey;
         
-        public override void Update(Map map)
+        public override void Update(MapBase map)
         {
             distancey = 5;
             if (Input.Instance.Right)
@@ -31,13 +31,8 @@ namespace shuntamu.View
                 distancex = 0;
             }
 
-            Distance = new Size(distancex, distancey);
+            Distance = new Point(distancex, distancey);
             base.Update(map);
-
-
-
-
-
         }
     }
 }

@@ -3,21 +3,31 @@ using DxLibDLL;
 
 namespace shuntamu.View
 {
-    class Square:IDrawable
+    /// <summary>
+    /// IDrawable の 最も基本的な実装
+    /// </summary>
+    class Square : IDrawable
     {
-        public Size Top { get; set; }
+        public Point Top { get; set; }
+
+        public Point Point
+        {
+            get { return Top; }
+            set { Top = value; }
+        }
+
         public Size Size { get; set; }
-        public Size Bottom { get { return Top + Size; } }
-        
-        public Square(Size top, Size size)
+        public Point Bottom { get { return Top + Size; } }
+
+        public Square(Point top, Size size)
         {
             Top = top;
             Size = size;
         }
 
-        public virtual void Draw()
+        public virtual void Draw(Point zeropoint)
         {
-            DX.DrawBox(Top.Width, Top.Height, (Top+Size).Width,(Top+Size).Height , DX.GetColor(0, 0, 255), DX.TRUE);
+            DX.DrawBox(zeropoint.X + Top.X, zeropoint.Y + Top.Y, zeropoint.X + (Top + Size).X, zeropoint.Y + (Top + Size).Y, DX.GetColor(0, 0, 255), DX.TRUE);
         }
     }
 }

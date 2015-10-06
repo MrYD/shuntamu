@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace shuntamu.View.Menu
 {
-    class MenuMode:Mode
+    class MenuMode:ModeBase
     {
         public override void Draw()
         {

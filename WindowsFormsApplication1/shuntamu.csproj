@@ -55,10 +55,10 @@
     <Compile Include="View\AutumnGround\Charactors\MainCharactor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Map.cs" />
-    <Compile Include="View\MapObject.cs" />
+    <Compile Include="View\MapBase.cs" />
+    <Compile Include="View\MapElementBase.cs" />
     <Compile Include="View\Menu\MenuMode.cs" />
-    <Compile Include="View\Mode.cs" />
+    <Compile Include="View\ModeBase.cs" />
     <Compile Include="View\MotionlessObject.cs" />
     <Compile Include="View\Square.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using shuntamu.View.AutumnGround;
 
 namespace shuntamu.View
 {
+    /// <summary>
+    /// Mode の切り替えをするクラス
+    /// </summary>
     class View
     {
-        private Mode[] modes;
+        private readonly ModeBase[] modes;
         public int ModeNumber { get; set; }
 
         public View()
         {
-            modes=new Mode[1];
+            modes = new ModeBase[1];
             ModeNumber = 0;
-            modes[0]=new GameMode1();
+            modes[0] = new GameMode1();
         }
 
-        public Mode CurrentMode
+        public ModeBase CurrentMode
         {
             get { return modes[ModeNumber]; }
         }
@@ -30,7 +34,7 @@ namespace shuntamu.View
 
         internal void Draw()
         {
-           CurrentMode.Draw();
+            CurrentMode.Draw();
         }
     }
 }

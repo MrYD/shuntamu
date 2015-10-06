@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace shuntamu.View
 {
     /// <summary>
-    /// 静止する Map要素
+    /// Map に追加可能な要素
     /// </summary>
-    class MotionlessObject : MapElementBase
+    abstract class MapElementBase : Square
     {
-        public MotionlessObject(Point top, Size size)
+        protected MapElementBase(Point top, Size size)
             : base(top, size)
         {
         }

@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace shuntamu.View.AutumnGround
 {
-    class Map1:Map
+    class Map1 : MapBase
     {
-         public Map1()
+        public Map1()
+            : base(new Size(1000, 1000))
         {
-            Square floor = new Square(new Size(0, 500), new Size(900, 100));
-            Add(floor);
+            var floor = new MotionlessObject(new Point(0, 500), new Size(1000, 100));
+            AddElement(floor);
         }
     }
 }

@@ -1,32 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using shuntamu.View.AutumnGround;
+﻿using System.Drawing;
 
-namespace shuntamu.View
+namespace shuntamu.View.AutumnGround
 {
-    class GameMode1 : Mode
+    class GameMode1 : ModeBase
     {
-
-        private Map1 map1;
-        private MainCharactor mario;
+        private readonly Map1 _map1;
+        private readonly MainCharactor _mario;
         public GameMode1()
         {
-            mario = new MainCharactor();
-            map1 = new Map1();
+            _mario = new MainCharactor();
+            _map1 = new Map1();
         }
 
         public override void Draw()
         {
-            map1.Draw();
-            mario.Draw();
+            _map1.Draw(new Point(0,0));
+            _mario.Draw(new Point(0,0));
         }
 
         public override void Update()
         {
-            mario.Update(map1);
+            _mario.Update(_map1);
             //TODO map内のアップデート
         }
     }
