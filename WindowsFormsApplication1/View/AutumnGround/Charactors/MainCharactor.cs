@@ -59,9 +59,9 @@ namespace shuntamu.View.AutumnGround.Charactors
         {
             get
             {
-                if (_vy > 5)
+                if (_vy > 15)
                 {
-                    _vy = 5;
+                    _vy = 15;
                 }
                 else if (_vy < -20)
                 {
