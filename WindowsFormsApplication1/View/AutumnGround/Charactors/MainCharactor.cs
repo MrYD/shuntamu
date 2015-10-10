@@ -24,9 +24,11 @@ namespace shuntamu.View.AutumnGround.Charactors
             };
             HitEvent += obj =>
             {
-                if (obj is MotionObject)
+               
+                if (obj is Siratama)
                 {
-                    DX.DrawString(400, 200, "Game Over", DX.GetColor(200, 200, 200));
+                    View.ModeNumber = 1;
+                   // DX.DrawString(400, 200, "Game Over", DX.GetColor(200, 200, 200));
                 }
             };
 
