@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using DxLibDLL;
 using shuntamu.Util;
 
 namespace shuntamu.View.AutumnGround.Charactors
@@ -9,7 +10,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         public MainCharactor()
             : base(new Point(100, 0), new Size(50, 100))
         {
-            HitYEvent += () =>
+            HitYEvent += obj =>
             {
                 _vy = 0;
                 if (Input.Instance.LeftShift)
@@ -17,9 +18,16 @@ namespace shuntamu.View.AutumnGround.Charactors
                     _vy = -30;
                 }      
             };
-            HitXEvent += () =>
+            HitXEvent += obj =>
             {
                 _vx = 0;
+            };
+            HitEvent += obj =>
+            {
+                if (obj is MotionObject)
+                {
+                    DX.DrawString(400, 200, "Game Over", DX.GetColor(200, 200, 200));
+                }
             };
 
         }
@@ -88,6 +96,12 @@ namespace shuntamu.View.AutumnGround.Charactors
             }           
             base.Update(map);
             Distance = new Point(Vx, Vy);
+        }
+
+        public override void Draw(Point top, Size size)
+        {
+           // DX.DrawCircle(top.X, top.Y, 10, DX.GetColor(200, 200, 200));
+            base.Draw(top,size);
         }
     }
 }

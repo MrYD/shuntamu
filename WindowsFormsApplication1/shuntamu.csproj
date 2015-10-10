@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Util\Input.cs" />
+    <Compile Include="View\AutumnGround\Charactors\Siratama.cs" />
     <Compile Include="View\AutumnGround\Map1.cs" />
     <Compile Include="View\MotionObject.cs" />
     <Compile Include="View\DrawHub.cs" />

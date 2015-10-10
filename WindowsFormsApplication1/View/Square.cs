@@ -26,9 +26,16 @@ namespace shuntamu.View
             Size = size;
         }
 
-        public virtual void Draw(Point zeropoint)
+        public void Draw(Point zeropoint)
         {
-            DX.DrawBox(zeropoint.X + Top.X, zeropoint.Y + Top.Y, zeropoint.X + (Top + Size).X, zeropoint.Y + (Top + Size).Y, DX.GetColor(0, 0, 255), DX.TRUE);
+            Draw(new Point(zeropoint.X + Top.X, zeropoint.Y + Top.Y), Size);
+        }
+
+        public virtual void Draw(Point top, Size size)
+        {
+            DX.DrawBox(top.X, top.Y, (top + size).X,
+               (top + Size).Y, DX.GetColor(0, 0, 255), DX.TRUE);
         }
     }
 }
+

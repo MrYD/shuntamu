@@ -31,6 +31,14 @@ namespace shuntamu.View
             _elements.Draw(zeropoint);
         }
 
+        public void Update()
+        {
+            foreach (var variable in _elements)
+            {
+                if(variable is MotionObject) ((MotionObject)variable).Update(this);
+            }
+        }
+
         public Point Point
         {
             get { return _elements.Point; }

@@ -15,14 +15,15 @@ namespace shuntamu.View.AutumnGround
 
         public override void Draw()
         {
-            _map1.Draw(new Point(0,0));
-            _mario.Draw(new Point(0,0));
+             var p = new Point(400-_mario.Top.X,300-_mario.Top.Y);
+            _map1.Draw(p);
+            _mario.Draw(p);
         }
 
         public override void Update()
         {
             _mario.Update(_map1);
-            //TODO map内のアップデート
+            _map1.Update();
         }
     }
 }
