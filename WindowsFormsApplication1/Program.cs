@@ -1,5 +1,6 @@
 ﻿using System;
 using DxLibDLL;
+using shuntamu.Util;
 
 namespace shuntamu
 {
@@ -21,6 +22,7 @@ namespace shuntamu
             {
                 view.Update();
                 view.Draw();
+                Input.Instance.Update();
             }
             DX.DxLib_End();
         }
