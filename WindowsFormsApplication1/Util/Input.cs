@@ -10,6 +10,7 @@ namespace shuntamu.Util
     internal class Input
     {
         private static Input _Instance;
+        private byte[] Buf=new byte[256];
 
         public static Input Instance
         {
@@ -25,12 +26,14 @@ namespace shuntamu.Util
                 }
             }
         }
+      
+
 
         public bool Right
         {
             get
             {
-                if (DX.CheckHitKey(DX.KEY_INPUT_RIGHT) == 1) return true;
+                if (Buf[DX.KEY_INPUT_RIGHT] == 1) return true;
                 else
                 {
                     return false;
@@ -43,7 +46,7 @@ namespace shuntamu.Util
         {
             get
             {
-                if (DX.CheckHitKey(DX.KEY_INPUT_LEFT) == 1) return true;
+                if (Buf[DX.KEY_INPUT_LEFT] == 1) return true;
                 else
                 {
                     return false;
@@ -55,7 +58,7 @@ namespace shuntamu.Util
         {
             get
             {
-                if (DX.CheckHitKey(DX.KEY_INPUT_UP) == 1) return true;
+                if (Buf[DX.KEY_INPUT_UP] == 1) return true;
                 else
                 {
                     return false;
@@ -67,7 +70,7 @@ namespace shuntamu.Util
         {
             get
             {
-                if (DX.CheckHitKey(DX.KEY_INPUT_DOWN) == 1) return true;
+                if (Buf[DX.KEY_INPUT_DOWN] == 1) return true;
                 else
                 {
                     return false;
@@ -79,7 +82,7 @@ namespace shuntamu.Util
         {
             get
             {
-                if (DX.CheckHitKey(DX.KEY_INPUT_SPACE) == 1) return true;
+                if (Buf[DX.KEY_INPUT_SPACE] == 1) return true;
                 else
                 {
                     return false;
@@ -91,7 +94,7 @@ namespace shuntamu.Util
         {
             get
             {
-                if (DX.CheckHitKey(DX.KEY_INPUT_LSHIFT) == 1) return true;
+                if (Buf[DX.KEY_INPUT_LSHIFT] == 1) return true;
                 else
                 {
                     return false;
@@ -101,7 +104,7 @@ namespace shuntamu.Util
 
         public void Update()
         {
-            
+            DX.GetHitKeyStateAll(out Buf[0]);
         }
     }
 }
