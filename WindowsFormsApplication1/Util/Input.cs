@@ -99,5 +99,9 @@ namespace shuntamu.Util
             }
         }
 
+        public void Update()
+        {
+            
+        }
     }
 }

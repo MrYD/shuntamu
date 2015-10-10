@@ -194,3 +194,6 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+WindowsFormsApplication1/View/MapBase.cs
+WindowsFormsApplication1/View/MapElementBase.cs
+WindowsFormsApplication1/View/ModeBase.cs
