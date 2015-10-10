@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DxLibDLL;
+using shuntamu.Util;
 
 namespace shuntamu.View.GameOver
 {
@@ -12,12 +13,15 @@ namespace shuntamu.View.GameOver
         private int handle = DX.LoadGraph(@"IWBT素材\スプライト\ガメオベラ.png");
         public override void Draw()
         {
-            DX.DrawGraph(0, 150, handle, DX.FALSE);
+            DX.DrawGraph(0, 120, handle, DX.FALSE);
         }
 
         public override void Update()
         {
-           
+            if (Input.Instance.Space)
+            {
+                View.Reset();
+            }
         }
     }
 }

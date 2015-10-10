@@ -33,5 +33,11 @@ namespace shuntamu.View
         {
             CurrentMode.Draw();
         }
+
+        public static void Reset()
+        {
+           _modes[0]=new GameMode1();
+            ModeNumber = 0;
+        }
     }
 }
