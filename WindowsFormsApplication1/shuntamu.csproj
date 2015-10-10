@@ -47,6 +47,7 @@
     <Compile Include="Util\Input.cs" />
     <Compile Include="View\AutumnGround\Charactors\Siratama.cs" />
     <Compile Include="View\AutumnGround\Map1.cs" />
+    <Compile Include="View\GameOver\GameOverMode.cs" />
     <Compile Include="View\MotionObject.cs" />
     <Compile Include="View\DrawHub.cs" />
     <Compile Include="View\AutumnGround\GameMode1.cs" />

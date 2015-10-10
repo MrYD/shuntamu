@@ -1,4 +1,5 @@
 ﻿using shuntamu.View.AutumnGround;
+using shuntamu.View.GameOver;
 
 namespace shuntamu.View
 {
@@ -7,17 +8,18 @@ namespace shuntamu.View
     /// </summary>
     class View
     {
-        private readonly ModeBase[] _modes;
-        public int ModeNumber { get; set; }
+        private static ModeBase[] _modes;
+        public static int ModeNumber { get; set; }
 
         public View()
         {
-            _modes = new ModeBase[1];
+            _modes = new ModeBase[2];
             ModeNumber = 0;
             _modes[0] = new GameMode1();
+            _modes[1]=new GameOverMode();
         }
 
-        public ModeBase CurrentMode
+        public static ModeBase CurrentMode
         {
             get { return _modes[ModeNumber]; }
         }
