@@ -22,9 +22,10 @@ namespace shuntamu.View
         public virtual void Update(MapBase map)
         {
             var hitflag = false;
-            foreach (var obj in map.Elements)
+            for (int index = 0; index < map.Elements.Count; index++)
             {
-                if(obj.Equals(this))continue;
+                var obj = map.Elements[index];
+                if (obj.Equals(this)) continue;
                 if (CheckHit(new Square(new Point(Top.X + Distance.X, Top.Y), Size), obj))
                 {
                     hitflag = true;

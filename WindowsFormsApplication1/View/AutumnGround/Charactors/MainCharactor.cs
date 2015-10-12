@@ -10,6 +10,9 @@ namespace shuntamu.View.AutumnGround.Charactors
         public MainCharactor()
             : base(new Point(100, 0), new Size(50, 100))
         {
+
+
+
             HitYEvent += obj =>
             {
                 _vy = 0;
@@ -82,6 +85,10 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         public override void Update(MapBase map)
         {
+            if (Top.Y > 600)
+            {
+                View.ModeNumber = 1;
+            }
             ay = 5;
             if (Input.Instance.Right)
             {
@@ -99,6 +106,7 @@ namespace shuntamu.View.AutumnGround.Charactors
             base.Update(map);
             Distance = new Point(Vx, Vy);
         }
+       
 
         public override void Draw(Point top, Size size)
         {

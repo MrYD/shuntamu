@@ -33,8 +33,9 @@ namespace shuntamu.View
         /// <param name="zeropoint"></param>
         public void Draw(Point zeropoint)
         {
-            foreach (var itr in this)
+            for (int index = 0; index < this.Count; index++)
             {
+                var itr = this[index];
                 itr.Draw(zeropoint);
             }
         }
