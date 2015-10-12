@@ -12,9 +12,11 @@ namespace shuntamu.View.AutumnGround
             var floor = new MotionlessObject(new Point(0, 500), new Size(1000, 100));
             var floor2 = new MotionlessObject(new Point(500, 140), new Size(100, 2000));
             var siratama = new Siratama(new Point(250,150),new Size(40,40) );
+            var saveobject = new SaveObject(new Point(550,-50));
             AddElement(floor);
             AddElement(floor2);
             AddElement(siratama);
+            AddElement(saveobject);
         }
     }
 }

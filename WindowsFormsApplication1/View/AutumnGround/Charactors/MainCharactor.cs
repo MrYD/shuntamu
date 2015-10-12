@@ -8,7 +8,7 @@ namespace shuntamu.View.AutumnGround.Charactors
     class MainCharactor : MotionObject
     {
         public MainCharactor()
-            : base(new Point(100, 0), new Size(50, 100))
+            : base(SaveObject.RestartPoint, new Size(50, 100))
         {
             HitYEvent += obj =>
             {
@@ -16,19 +16,24 @@ namespace shuntamu.View.AutumnGround.Charactors
                 if (Input.Instance.LeftShift)
                 {
                     _vy = -30;
-                }      
+                }
+               
+
             };
             HitXEvent += obj =>
             {
-                _vx = 0;
+                _vx = 0;       
             };
             HitEvent += obj =>
             {
-               
+                if (obj is SaveObject)
+                {
+                    ((SaveObject)obj).Save();
+                }
                 if (obj is Siratama)
                 {
                     View.ModeNumber = 1;
-                   // DX.DrawString(400, 200, "Game Over", DX.GetColor(200, 200, 200));
+                    // DX.DrawString(400, 200, "Game Over", DX.GetColor(200, 200, 200));
                 }
             };
 
@@ -95,15 +100,15 @@ namespace shuntamu.View.AutumnGround.Charactors
             {
                 ax = 0;
                 _vx = 0;
-            }           
+            }
             base.Update(map);
             Distance = new Point(Vx, Vy);
         }
 
         public override void Draw(Point top, Size size)
         {
-           // DX.DrawCircle(top.X, top.Y, 10, DX.GetColor(200, 200, 200));
-            base.Draw(top,size);
+            // DX.DrawCircle(top.X, top.Y, 10, DX.GetColor(200, 200, 200));
+            base.Draw(top, size);
         }
     }
 }

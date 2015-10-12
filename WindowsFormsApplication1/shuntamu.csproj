@@ -51,6 +51,7 @@
     <Compile Include="View\MotionObject.cs" />
     <Compile Include="View\DrawHub.cs" />
     <Compile Include="View\AutumnGround\GameMode1.cs" />
+    <Compile Include="View\SaveObject.cs" />
     <Compile Include="View\View.cs" />
     <Compile Include="View\IDrawable.cs" />
     <Compile Include="Util\DxDLL.cs" />
