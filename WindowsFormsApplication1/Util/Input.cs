@@ -31,14 +31,7 @@ namespace shuntamu.Util
 
         public bool Right
         {
-            get
-            {
-                if (Buf[DX.KEY_INPUT_RIGHT] == 1) return true;
-                else
-                {
-                    return false;
-                }
-            }
+            get { return Buf[DX.KEY_INPUT_RIGHT] == 1; }
 
         }
 

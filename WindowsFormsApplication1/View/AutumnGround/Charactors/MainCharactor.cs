@@ -15,12 +15,13 @@ namespace shuntamu.View.AutumnGround.Charactors
                 _vy = 0;
                 if (Input.Instance.LeftShift)
                 {
-                    _vy = -30;
+                    _vy = -3;
+                    jumpflame = 1;
                 }
             };
             HitXEvent += obj =>
             {
-                _vx = 0;       
+                _vx = 0;
             };
             HitEvent += obj =>
             {
@@ -79,12 +80,33 @@ namespace shuntamu.View.AutumnGround.Charactors
                 return (int)_vy;
             }
         }
+
+        private int jumpflame = 0;
         private float ax;
         private float ay;
         private float m = 10f;
 
         public override void Update(MapBase map)
         {
+            if (Input.Instance.LeftShift)
+            {
+                if (jumpflame != 0)
+                {
+                    if (jumpflame < 20)
+                    {
+                        jumpflame++;
+                        _vy = -10;
+                    }
+                    else
+                    {
+                        jumpflame = 0;
+                    }
+                }       
+            }
+            else
+            {
+                jumpflame = 0;
+            }
             if (Top.Y > 600)
             {
                 View.ModeNumber = 1;
@@ -106,7 +128,7 @@ namespace shuntamu.View.AutumnGround.Charactors
             base.Update(map);
             Distance = new Point(Vx, Vy);
         }
-       
+
 
         public override void Draw(Point top, Size size)
         {
