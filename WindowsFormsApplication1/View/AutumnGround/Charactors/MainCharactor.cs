@@ -87,18 +87,18 @@ namespace shuntamu.View.AutumnGround.Charactors
         private float ax;
         private float ay;
         private float m = 10f;
-        private int _bulletInterval = 30;
-
+        private int _bulletIntervalCount = BULLETINTERVAL;
+        private const int BULLETINTERVAL = 20;
         public override void Update(MapBase map)
         {
-            if (_bulletInterval > 0)
+            if (_bulletIntervalCount > 0)
             {
-                _bulletInterval--;
+                _bulletIntervalCount--;
             }
 
             if (Input.Instance.Z)
             {
-                if (_bulletInterval <= 0)
+                if (_bulletIntervalCount <= 0)
                 {
                     Bullet bullet;
                     if (Direction == Direction.Right)
@@ -111,7 +111,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                     }
                     map.AddElement(bullet);
                     map.UpdateElement();
-                    _bulletInterval = 30;
+                    _bulletIntervalCount = BULLETINTERVAL;
                 }
             }
 

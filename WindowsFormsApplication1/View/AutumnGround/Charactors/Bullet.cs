@@ -30,7 +30,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         {
             if(!IsActive)return;
             _bulletLife++;
-            if (_bulletLife > 100)
+            if (_bulletLife > 50)
             {
                 IsActive = false;
             }
