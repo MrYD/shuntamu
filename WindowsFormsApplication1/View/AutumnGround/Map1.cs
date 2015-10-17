@@ -6,10 +6,10 @@ namespace shuntamu.View.AutumnGround
     class Map1 : MapBase
     {
         public Map1()
-            : base(new Size(1000, 1000))
+            : base(100)
         {
 
-            var floor = new MotionlessObject(new Point(0, 500), new Size(1000, 100));
+            var floor = new MotionlessObject(new Point(0, 500), new Size(10000, 100));
             var floor2 = new MotionlessObject(new Point(500, 140), new Size(100, 2000));
             var siratama = new Siratama(new Point(250,150),new Size(40,40) );
             var saveobject = new SaveObject(new Point(550,-50));
@@ -17,6 +17,15 @@ namespace shuntamu.View.AutumnGround
             AddElement(floor2);
             AddElement(siratama);
             AddElement(saveobject);
+            UpdateElement();
+
+            MotionObject obj;
+
+            for (int i = 0; i < 500; i++)
+            {
+                obj = new Siratama(new Point(250 + 200 * i, 150), new Size(40, 40));
+                AddElement(obj);
+            }
         }
     }
 }

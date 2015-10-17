@@ -10,9 +10,6 @@ namespace shuntamu.View.AutumnGround.Charactors
         public MainCharactor()
             : base(SaveObject.RestartPoint, new Size(50, 100))
         {
-
-
-
             HitYEvent += obj =>
             {
                 _vy = 0;
@@ -20,8 +17,6 @@ namespace shuntamu.View.AutumnGround.Charactors
                 {
                     _vy = -30;
                 }
-               
-
             };
             HitXEvent += obj =>
             {
