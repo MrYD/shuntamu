@@ -76,27 +76,36 @@ namespace shuntamu.View
 
         }
 
+        public MapBlock CurrentBlock
+        {
+            get { return Blocks[CurrentBlockNumber]; }
+        }
+
         public void UpdateElement()
         {
             var newBlockNumber = CurrentBlockNumber;
             Elements = new List<MapElementBase>();
             foreach (var element in _floors)
             {
-                Elements.Add(element);
+                if (element.IsActive)
+                    Elements.Add(element);
             }
             foreach (var element in Blocks[newBlockNumber].Elements)
             {
-                Elements.Add(element);
+                if (element.IsActive)
+                    Elements.Add(element);
             }
             if (newBlockNumber + 1 < Blocks.Count)
                 foreach (var element in Blocks[newBlockNumber + 1].Elements)
                 {
-                    Elements.Add(element);
+                    if (element.IsActive)
+                        Elements.Add(element);
                 }
-            if (newBlockNumber - 1 > 0)
+            if (newBlockNumber - 1 >= 0)
                 foreach (var element in Blocks[newBlockNumber - 1].Elements)
                 {
-                    Elements.Add(element);
+                    if (element.IsActive)
+                        Elements.Add(element);
                 }
         }
 
@@ -124,14 +133,30 @@ namespace shuntamu.View
         public void Update(Point point)
         {
             CurrentPoint = point;
-            foreach (var variable in Elements)
+            for (int index = 0; index < Elements.Count; index++)
             {
-                if (variable is MotionObject) ((MotionObject)variable).Update(this);
+                var variable = Elements[index];
+                if (variable is MotionObject)
+                {
+                    if (((MotionObject)variable).IsActive)
+                    {
+                        ((MotionObject)variable).Update(this);
+                    }
+                    else
+                    {
+                        Elements.Remove(variable);
+                    }
+                }
             }
         }
 
         public Point Point { get; set; }
 
         public Size Size { get; set; }
+
+        internal void AddElementNow(MapElementBase element)
+        {
+            _elements.Add(element);
+        }
     }
 }

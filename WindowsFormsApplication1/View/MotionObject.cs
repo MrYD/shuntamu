@@ -12,6 +12,7 @@ namespace shuntamu.View
         public MotionObject(Point top, Size size)
             : base(top, size)
         {
+            IsActive = true;
         }
 
         public Point Distance { get; set; }
@@ -21,6 +22,7 @@ namespace shuntamu.View
 
         public virtual void Update(MapBase map)
         {
+            if (!IsActive) return;
             var hitflag = false;
             for (int index = 0; index < map.Elements.Count; index++)
             {
@@ -51,6 +53,13 @@ namespace shuntamu.View
             if (!hitflag) Top += new Size(0, Distance.Y);
           
         }
+
+        public override void Draw(Point top, Size size)
+        {
+            if (!IsActive) return;
+            base.Draw(top, size);
+        }
+
         public static bool CheckHit(Square a, Square b)
         {
             return CheckHit(a.Top, b) || CheckHit(a.Bottom, b) || CheckHit(a.LeftBottom, b) || CheckHit(a.RightTop, b) ||

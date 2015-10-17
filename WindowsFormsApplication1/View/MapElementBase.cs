@@ -10,6 +10,10 @@ namespace shuntamu.View
         protected MapElementBase(Point top, Size size)
             : base(top, size)
         {
+            IsActive = true;
         }
+
+        public bool IsActive { get; set; }
+
     }
 }

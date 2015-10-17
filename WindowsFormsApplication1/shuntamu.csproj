@@ -45,10 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Util\Input.cs" />
+    <Compile Include="View\AutumnGround\Charactors\Bullet.cs" />
     <Compile Include="View\AutumnGround\Charactors\Siratama.cs" />
     <Compile Include="View\AutumnGround\Floor.cs" />
     <Compile Include="View\AutumnGround\Map1.cs" />
     <Compile Include="View\GameOver\GameOverMode.cs" />
+    <Compile Include="View\IEnemy.cs" />
     <Compile Include="View\MapBlock.cs" />
     <Compile Include="View\MotionObject.cs" />
     <Compile Include="View\DrawHub.cs" />

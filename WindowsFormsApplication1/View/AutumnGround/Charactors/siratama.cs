@@ -8,7 +8,7 @@ using DxLibDLL;
 
 namespace shuntamu.View.AutumnGround.Charactors
 {
-    class Siratama:MotionObject
+    class Siratama:MotionObject,IEnemy
     {
         public Siratama(Point top, Size size) : base(top, size)
         {
@@ -29,6 +29,11 @@ namespace shuntamu.View.AutumnGround.Charactors
         public override void Draw(Point top, Size size)
         {
             DX.DrawCircle(top.X+20, top.Y+20, 20, DX.GetColor(200, 200, 200));
+        }
+
+        public void Damage()
+        {
+            IsActive = false;
         }
     }
 }

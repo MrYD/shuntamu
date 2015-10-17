@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 using DxLibDLL;
 using shuntamu.Util;
 
@@ -8,8 +9,9 @@ namespace shuntamu.View.AutumnGround.Charactors
     class MainCharactor : MotionObject
     {
         public MainCharactor()
-            : base(SaveObject.RestartPoint, new Size(50, 100))
+            : base(SaveObject.RestartPoint, new Size(10, 20))
         {
+            Direction = Direction.Right;
             HitYEvent += obj =>
             {
                 _vy = 0;
@@ -85,9 +87,34 @@ namespace shuntamu.View.AutumnGround.Charactors
         private float ax;
         private float ay;
         private float m = 10f;
+        private int _bulletInterval = 30;
 
         public override void Update(MapBase map)
         {
+            if (_bulletInterval > 0)
+            {
+                _bulletInterval--;
+            }
+
+            if (Input.Instance.Z)
+            {
+                if (_bulletInterval <= 0)
+                {
+                    Bullet bullet;
+                    if (Direction == Direction.Right)
+                    {
+                        bullet = new Bullet(new Point(Point.X + 11, Point.Y), Direction);
+                    }
+                    else
+                    {
+                        bullet = new Bullet(new Point(Point.X - 11, Point.Y), Direction);
+                    }
+                    map.AddElement(bullet);
+                    map.UpdateElement();
+                    _bulletInterval = 30;
+                }
+            }
+
             if (Input.Instance.LeftShift)
             {
                 if (jumpflame != 0)
@@ -101,7 +128,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                     {
                         jumpflame = 0;
                     }
-                }       
+                }
             }
             else
             {
@@ -114,10 +141,12 @@ namespace shuntamu.View.AutumnGround.Charactors
             ay = 5;
             if (Input.Instance.Right)
             {
+                Direction = Direction.Right;
                 ax = 5;
             }
             else if (Input.Instance.Left)
             {
+                Direction = Direction.Left;
                 ax = -5;
             }
             else
@@ -128,6 +157,8 @@ namespace shuntamu.View.AutumnGround.Charactors
             base.Update(map);
             Distance = new Point(Vx, Vy);
         }
+
+        public Direction Direction { get; set; }
 
 
         public override void Draw(Point top, Size size)

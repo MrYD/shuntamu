@@ -59,11 +59,11 @@ namespace shuntamu.Util
             }
         }
 
-        public bool Down
+        public bool Z
         {
             get
             {
-                if (Buf[DX.KEY_INPUT_DOWN] == 1) return true;
+                if (Buf[DX.KEY_INPUT_Z] == 1) return true;
                 else
                 {
                     return false;
