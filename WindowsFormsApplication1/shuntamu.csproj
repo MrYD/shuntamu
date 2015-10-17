@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Util\Input.cs" />
     <Compile Include="View\AutumnGround\Charactors\Siratama.cs" />
+    <Compile Include="View\AutumnGround\Floor.cs" />
     <Compile Include="View\AutumnGround\Map1.cs" />
     <Compile Include="View\GameOver\GameOverMode.cs" />
     <Compile Include="View\MapBlock.cs" />
