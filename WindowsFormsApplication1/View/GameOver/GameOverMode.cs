@@ -10,7 +10,7 @@ namespace shuntamu.View.GameOver
 {
     class GameOverMode:ModeBase
     {
-        private int handle = DX.LoadGraph(@"IWBT素材\スプライト\ガメオベラ.png");
+        private int handle = DX.LoadGraph(@"../../IWBT素材/スプライト/ガメオベラ.png");
         public override void Draw()
         {
             DX.DrawGraph(0, 120, handle, DX.FALSE);
