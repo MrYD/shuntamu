@@ -8,7 +8,7 @@ using DxLibDLL;
 
 namespace shuntamu.View.AutumnGround.Charactors
 {
-    class Siratama : MotionObject, IEnemy
+    class Siratama : MotionObject, IEnemy,IKiller
     {
         public Siratama(Point top, Size size)
             : base(top, size)
@@ -36,6 +36,11 @@ namespace shuntamu.View.AutumnGround.Charactors
         public void Damage()
         {
             IsActive = false;
+        }
+
+        public void Kill()
+        {
+            View.ModeNumber = 1;
         }
     }
 }
