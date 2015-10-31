@@ -11,7 +11,7 @@ namespace shuntamu.View
 {
     class SaveObject : MotionlessObject
     {
-        private static Point _restartPoint = new Point(0, 100);
+        private static Point _restartPoint = new Point(32, 128);
 
         public SaveObject(Point top)
             : base(top, new Size(32, 32))
@@ -33,7 +33,7 @@ namespace shuntamu.View
 
         public void Save()
         {
-            RestartPoint = new Point(Top.X, Top.Y - 150);
+            RestartPoint = new Point(Top.X, Top.Y - 96);
         }
     }
 }
