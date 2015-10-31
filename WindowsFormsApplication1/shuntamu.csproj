@@ -48,6 +48,8 @@
     <Compile Include="View\AutumnGround\Charactors\Bullet.cs" />
     <Compile Include="View\AutumnGround\Charactors\DropEryngii.cs" />
     <Compile Include="View\AutumnGround\Charactors\Eringi.cs" />
+    <Compile Include="View\AutumnGround\Charactors\EringiDown.cs" />
+    <Compile Include="View\AutumnGround\Charactors\LongEringi.cs" />
     <Compile Include="View\IKiller.cs" />
     <Compile Include="View\AutumnGround\Charactors\Siratama.cs" />
     <Compile Include="View\AutumnGround\Floor.cs" />

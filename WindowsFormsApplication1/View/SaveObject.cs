@@ -9,7 +9,7 @@ using shuntamu.View.AutumnGround.Charactors;
 
 namespace shuntamu.View
 {
-    class SaveObject : MotionlessObject
+    class SaveObject : MotionlessObject,IEnemy
     {
         private static Point _restartPoint = new Point(32, 128);
 
@@ -34,6 +34,11 @@ namespace shuntamu.View
         public void Save()
         {
             RestartPoint = new Point(Top.X, Top.Y - 96);
+        }
+
+        public void Damage()
+        {
+            Save();
         }
     }
 }
