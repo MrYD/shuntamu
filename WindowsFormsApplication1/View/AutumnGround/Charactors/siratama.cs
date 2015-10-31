@@ -16,8 +16,6 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         }
 
-
-
         public override void Update(MapBase map)
         {
             int y = 5;

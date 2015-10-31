@@ -16,9 +16,9 @@ namespace shuntamu.View
         }
 
         public Point Distance { get; set; }
-        public event Action<object> HitYEvent;
-        public event Action<object> HitXEvent;
-        public event Action<object> HitEvent;
+        public event Action<MapElementBase> HitYEvent;
+        public event Action<MapElementBase> HitXEvent;
+        public event Action<MapElementBase> HitEvent;
 
         public virtual void Update(MapBase map)
         {
@@ -30,28 +30,35 @@ namespace shuntamu.View
                 if (obj.Equals(this)) continue;
                 if (CheckHit(new Square(new Point(Top.X + Distance.X, Top.Y), Size), obj))
                 {
-                    hitflag = true;
                     OnHitEvent(obj);
                     OnHitXEvent(obj);
-                    break;
+                    if (obj.IsSolid)
+                    {
+                        hitflag = true;
+                        break;
+                    }
+                                  
                 }
             }
             if (!hitflag) Top += new Size(Distance.X, 0);
-           
+
             hitflag = false;
             foreach (var obj in map.Elements)
             {
                 if (obj.Equals(this)) continue;
                 if (CheckHit(new Square(new Point(Top.X, Top.Y + Distance.Y), Size), obj))
                 {
-                    hitflag = true;
                     OnHitEvent(obj);
-                    OnHitYEvent(obj);  
-                    break;
+                    OnHitYEvent(obj);
+                    if (obj.IsSolid)
+                    {
+                        hitflag = true;
+                        break;
+                    }
                 }
             }
             if (!hitflag) Top += new Size(0, Distance.Y);
-          
+
         }
 
         public override void Draw(Point top, Size size)
@@ -72,19 +79,19 @@ namespace shuntamu.View
         }
 
 
-        protected virtual void OnHitYEvent(object obj)
+        protected virtual void OnHitYEvent(MapElementBase obj)
         {
             var handler = HitYEvent;
             if (handler != null) handler(obj);
         }
 
-        protected virtual void OnHitXEvent(object obj)
+        protected virtual void OnHitXEvent(MapElementBase obj)
         {
             var handler = HitXEvent;
             if (handler != null) handler(obj);
         }
 
-        protected virtual void OnHitEvent(object obj)
+        protected virtual void OnHitEvent(MapElementBase obj)
         {
             var handler = HitEvent;
             if (handler != null) handler(obj);

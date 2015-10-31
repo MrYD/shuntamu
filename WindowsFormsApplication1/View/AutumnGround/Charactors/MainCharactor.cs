@@ -14,19 +14,27 @@ namespace shuntamu.View.AutumnGround.Charactors
             Direction = Direction.Right;
             HitYEvent += obj =>
             {
-                _vy = 0;
-                if (Input.Instance.LeftShift)
+                if (obj.IsSolid)
                 {
-                    _vy = -3;
-                    jumpflame = 1;
+                    _vy = 0;
+                    if (Input.Instance.LeftShift)
+                    {
+                        _vy = -3;
+                        jumpflame = 1;
+                    }
                 }
             };
             HitXEvent += obj =>
             {
-                _vx = 0;
+                if (obj.IsSolid)
+                {
+                    _vx = 0;
+                }
+               
             };
             HitEvent += obj =>
             {
+                obj.OnBeHitEvent();
                 if (obj is SaveObject)
                 {
                     ((SaveObject)obj).Save();

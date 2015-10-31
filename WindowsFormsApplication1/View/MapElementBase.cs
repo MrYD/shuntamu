@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace shuntamu.View
 {
@@ -11,9 +12,18 @@ namespace shuntamu.View
             : base(top, size)
         {
             IsActive = true;
+            IsSolid = true;
         }
+        public event Action BeHitEvent;
 
         public bool IsActive { get; set; }
 
+        public bool IsSolid { get; set; }
+
+        public void OnBeHitEvent()
+        {
+            var handler = BeHitEvent;
+            if (handler != null) handler();
+        }
     }
 }

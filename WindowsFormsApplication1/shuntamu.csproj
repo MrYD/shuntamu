@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Util\Input.cs" />
     <Compile Include="View\AutumnGround\Charactors\Bullet.cs" />
+    <Compile Include="View\AutumnGround\Charactors\DropEryngii.cs" />
     <Compile Include="View\AutumnGround\Charactors\Siratama.cs" />
     <Compile Include="View\AutumnGround\Floor.cs" />
     <Compile Include="View\AutumnGround\Map1.cs" />
