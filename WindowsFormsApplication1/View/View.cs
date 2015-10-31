@@ -1,4 +1,5 @@
 ﻿using shuntamu.View.AutumnGround;
+using shuntamu.View.Clear;
 using shuntamu.View.GameOver;
 
 namespace shuntamu.View
@@ -13,10 +14,11 @@ namespace shuntamu.View
 
         public View()
         {
-            _modes = new ModeBase[2];
+            _modes = new ModeBase[3];
             ModeNumber = 0;
             _modes[0] = new GameMode1();
             _modes[1]=new GameOverMode();
+            _modes[2] = new ClearMode();
         }
 
         public static ModeBase CurrentMode

@@ -13,7 +13,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         private int longEringiHandle;
         public LongEringi(Point top) : base(top, new Size(32,64))
         {
-            longEringiHandle= DX.LoadGraph(@"IWBT素材\ブロック\eringi_L.png");
+            longEringiHandle= DX.LoadGraph(@"../../IWBT素材\ブロック\eringi_L.png");
         }
 
         public override void Draw(Point top, Size size)
