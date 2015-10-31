@@ -39,9 +39,9 @@ namespace shuntamu.View.AutumnGround.Charactors
                 {
                     ((SaveObject)obj).Save();
                 }
-                if (obj is Siratama)
+                if (obj is IKiller)
                 {
-                    View.ModeNumber = 1;
+                  ((IKiller)obj).Kill();
                     // DX.DrawString(400, 200, "Game Over", DX.GetColor(200, 200, 200));
                 }
             };

@@ -47,9 +47,12 @@
     <Compile Include="Util\Input.cs" />
     <Compile Include="View\AutumnGround\Charactors\Bullet.cs" />
     <Compile Include="View\AutumnGround\Charactors\DropEryngii.cs" />
+    <Compile Include="View\AutumnGround\Charactors\Eringi.cs" />
+    <Compile Include="View\IKiller.cs" />
     <Compile Include="View\AutumnGround\Charactors\Siratama.cs" />
     <Compile Include="View\AutumnGround\Floor.cs" />
     <Compile Include="View\AutumnGround\Map1.cs" />
+    <Compile Include="View\AutumnGround\Rock1.cs" />
     <Compile Include="View\GameOver\GameOverMode.cs" />
     <Compile Include="View\IEnemy.cs" />
     <Compile Include="View\MapBlock.cs" />
@@ -91,7 +94,7 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
