@@ -14,7 +14,7 @@ namespace shuntamu.View.AutumnGround
         {
             handle = DX.MakeScreen(size.Width, size.Height);
             DX.SetDrawScreen(handle);
-            int rockHandle = DX.LoadGraph(@"IWBT素材\ブロック\rockNormal.png");
+            int rockHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/rockNormal.png");
             int rockWidth = size.Width / 32;
             int rockHight = size.Height / 32;
             for (int i = 0; i < rockWidth; i++)

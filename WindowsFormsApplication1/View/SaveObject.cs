@@ -25,7 +25,7 @@ namespace shuntamu.View
             set { _restartPoint = value; }
         }
 
-        private int handle = DX.LoadGraph(@"IWBT素材\スプライト\ゴールオーブ.png");
+        private int handle = DX.LoadGraph(@"../../IWBT素材/スプライト/ゴールオーブ.png");
         public override void Draw(Point top, Size size)
         {
             DX.DrawGraph(top.X, top.Y, handle, DX.TRUE);

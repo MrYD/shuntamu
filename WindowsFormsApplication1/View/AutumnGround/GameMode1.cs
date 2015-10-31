@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using DxLibDLL;
 using shuntamu.View.AutumnGround.Charactors;
 
 namespace shuntamu.View.AutumnGround
@@ -9,6 +10,7 @@ namespace shuntamu.View.AutumnGround
         private readonly MainCharactor _mario;
         public GameMode1()
         {
+            DX.PlaySoundFile(@"../../IWBT素材/音源/bgm_loop_103.wav", DX.DX_PLAYTYPE_LOOP);
             _mario = new MainCharactor();
             _map1 = new Map1();
         }
