@@ -8,22 +8,23 @@ using DxLibDLL;
 
 namespace shuntamu.View.AutumnGround.Charactors
 {
-    class EringiDown:MotionlessObject,IKiller
+    class EringiLeft:MotionlessObject,IKiller
     {
-        private int eringiDHandle;
-        public EringiDown(Point top) : base(top, new Size(32,32))
+        private int eringiLHandle;
+        public EringiLeft(Point top) : base(top, new Size(32,32))
         {
-            eringiDHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringiDownS.png");
+            eringiLHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringiLeftS.png");
         }
 
         public override void Draw(Point top, Size size)
         {
-            DX.DrawGraph(top.X, top.Y, eringiDHandle, DX.TRUE);
+            DX.DrawGraph(top.X, top.Y, eringiLHandle, DX.TRUE);
             //base.Draw(top, size);
         }
         public void Kill()
         {
             View.ModeNumber = 1;
         }
+
     }
 }

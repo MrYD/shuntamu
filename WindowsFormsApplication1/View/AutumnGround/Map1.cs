@@ -10,15 +10,20 @@ namespace shuntamu.View.AutumnGround
         {
             var saveObject1 = new SaveObject(new Point(1408,480));
             var saveObject2 = new SaveObject(new Point(3744,448));
+
             var eringi1 = new Eringi(new Point(448,224));
             var eringi2 = new Eringi(new Point(800,480));
             var eringi3 = new Eringi(new Point(1536,288));
             var eringi4 = new Eringi(new Point(1696,544));
             var eringi5 = new Eringi(new Point(1728,544));
             var eringi6 = new Eringi(new Point(2496,544));
-            var eringi7 = new LongEringi(new Point(6016,192));
+            var eringi7 = new LongEringi(new Point(2560,416));
+            var eringi8 = new EringiDown(new Point(896,352));
+            var eringi9 = new EringiLeft(new Point(1440,352));
+            var eringi10 = new EringiRight(new Point(1984,192));
+            
 
-            var clearObject1 = new ClearObject(new Point(1184,288));
+            var clearObject1 = new ClearObject(new Point(6016,192));
 
             var floor1 = new Floor(new Point(0,0), new Size(1760, 64));
             var floor2 = new Rock1(new Point(0,192), new Size(256, 416));
@@ -78,6 +83,7 @@ namespace shuntamu.View.AutumnGround
             var floor56 = new Rock1(new Point(5376,320),new Size(256,128) );
             var floor57 = new Rock1(new Point(5344,256),new Size(288,64) );
             var floor58 = new Rock1(new Point(5792,256),new Size(288,352) );
+            var floor59 = new Rock1(new Point(2592,352),new Size(64,128) );
 
             AddElement(saveObject1);
             AddElement(saveObject2);
@@ -89,6 +95,9 @@ namespace shuntamu.View.AutumnGround
             AddElement(eringi5);
             AddElement(eringi6);
             AddElement(eringi7);
+            AddElement(eringi8);
+            AddElement(eringi9);
+            AddElement(eringi10);
 
             AddElement(clearObject1);
             
@@ -150,6 +159,7 @@ namespace shuntamu.View.AutumnGround
             AddElement(floor56);
             AddElement(floor57);
             AddElement(floor58);
+            AddElement(floor59);
 
             UpdateElement();
         }
