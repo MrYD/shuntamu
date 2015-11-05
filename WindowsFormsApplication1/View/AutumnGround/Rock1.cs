@@ -15,13 +15,21 @@ namespace shuntamu.View.AutumnGround
             handle = DX.MakeScreen(size.Width, size.Height);
             DX.SetDrawScreen(handle);
             int rockHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/rockNormal.png");
+            int rockHandleFloor = DX.LoadGraph(@"../../IWBT素材/ブロック/rockFloor.png");
             int rockWidth = size.Width / 32;
             int rockHight = size.Height / 32;
             for (int i = 0; i < rockWidth; i++)
             {
                 for (int j = 0; j < rockHight; j++)
                 {
-                    DX.DrawGraph(i * 32,j * 32, rockHandle, DX.TRUE);
+                    if (j == 0)
+                    {
+                        DX.DrawGraph(i*32, j*32, rockHandleFloor, DX.TRUE);
+                    }
+                    else
+                    {
+                        DX.DrawGraph(i*32, j*32, rockHandle, DX.TRUE);
+                    }
                 }
             }
             DX.SetDrawScreen(DX.DX_SCREEN_FRONT);
