@@ -11,7 +11,7 @@ namespace shuntamu.View.Clear
     internal class ClearMode:ModeBase
 
 {
-    private int handle = DX.LoadGraph(@"../../IWBT素材/スプライト/クッパ.png");
+        private int handle = DX.LoadGraph(@"../../IWBT素材/スプライト/clearObject.png");
     public override void Draw()
     {
         DX.DrawGraph(0, 120, handle, DX.FALSE);
