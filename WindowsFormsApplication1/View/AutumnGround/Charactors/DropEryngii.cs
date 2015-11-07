@@ -4,10 +4,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DxLibDLL;
 
 namespace shuntamu.View.AutumnGround.Charactors
 {
-    class DropEryngii : MotionObject, IEnemy
+    class DropEryngii :MotionObject, IEnemy,IKiller
     {
 
         public MotionlessObject Erea { get; set; }
@@ -18,9 +19,10 @@ namespace shuntamu.View.AutumnGround.Charactors
         {
         }
 
-        public DropEryngii(Point top, Size size, Point ereatop, Size ereasize)
-            : base(top, size)
+        public DropEryngii(Point top, Point ereatop, Size ereasize)
+            : base(top, new Size(32, 32))
         {
+            eringiHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringi_S.png");
             Erea = new MotionlessObject(ereatop, ereasize);
             Erea.IsSolid = false;
             Erea.BeHitEvent += () =>
@@ -31,12 +33,29 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         public override void Draw(Point top, Size size)
         {
-            base.Draw(top, size);
+            DX.DrawGraph(top.X, top.Y, eringiHandle, DX.TRUE);
         }
 
         public override void Update(MapBase map)
         {
+            if (_isTrigered)
+            {
+                int y = 5;
+                int x = 0;
+                Distance = new Point(x, y);         
+            }
+            else
+            {
+                Distance = new Point(0, 0);     
+            }
             base.Update(map);
+           
+        }
+
+        private int eringiHandle;
+        public void Kill()
+        {
+            View.ModeNumber = 1;
         }
     }
 }
