@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace shuntamu.View
@@ -15,6 +16,15 @@ namespace shuntamu.View
             IsSolid = true;
         }
         public event Action BeHitEvent;
+
+        public MapBase Map { get; set; }
+
+        public MapElementBase AddTo(MapBase map)
+        {
+            Map = map;
+            map.AddElement(this);
+            return this;
+        }
 
         public bool IsActive { get; set; }
 
