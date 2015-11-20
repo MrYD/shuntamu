@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Drawing.Text;
 using DxLibDLL;
 using shuntamu.View.AutumnGround.Charactors;
 
@@ -8,6 +9,7 @@ namespace shuntamu.View.AutumnGround
     {
         private readonly Map1 _map1;
         private readonly MainCharactor _mario;
+        int backgroundHandle = DX.LoadGraph(@"../../IWBT素材/背景/夜_トランジション.png");
         public GameMode1()
         {
             DX.PlaySoundFile(@"../../IWBT素材/音源/bgm_loop_103.wav", DX.DX_PLAYTYPE_LOOP);
@@ -28,7 +30,9 @@ namespace shuntamu.View.AutumnGround
                 y = 300 - _mario.Top.Y;
             }
 
-
+         
+            DX.DrawGraph(0,0, backgroundHandle, DX.TRUE);
+        
              var p = new Point(400-_mario.Top.X,y);
             _map1.Draw(p);
             _mario.Draw(p);

@@ -13,6 +13,7 @@ namespace shuntamu.View.AutumnGround
         public void Kill()
         {
             View.ModeNumber = 2;
+            SaveObject.RestartPoint = new Point(32, 128);
         }
 
         public ClearObject(Point top) : base(top, new Size(32,32))
