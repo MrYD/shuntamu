@@ -30,7 +30,7 @@ namespace shuntamu.View
         {
             Draw(new Point(zeropoint.X + Top.X, zeropoint.Y + Top.Y), Size);
         }
-
+        
         public virtual void Draw(Point top, Size size)
         {
             DX.DrawBox(top.X, top.Y, (top + size).X,

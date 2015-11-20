@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.CompilerServices;
+using DxLibDLL;
 using shuntamu.View.AutumnGround;
 
 namespace shuntamu.View

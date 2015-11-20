@@ -47,7 +47,7 @@
     <Compile Include="Util\Input.cs" />
     <Compile Include="View\AutumnGround\Charactors\Bullet.cs" />
     <Compile Include="View\AutumnGround\Charactors\DropEryngii.cs" />
-    <Compile Include="View\AutumnGround\Charactors\Eringi.cs" />
+    <Compile Include="View\AutumnGround\Charactors\MotionlessKiller.cs" />
     <Compile Include="View\AutumnGround\Charactors\EringiDown.cs" />
     <Compile Include="View\AutumnGround\Charactors\EringiLeft.cs" />
     <Compile Include="View\AutumnGround\Charactors\EringiRight.cs" />
