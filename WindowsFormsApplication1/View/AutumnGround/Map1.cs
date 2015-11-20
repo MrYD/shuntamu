@@ -21,6 +21,10 @@ namespace shuntamu.View.AutumnGround
             var eringi8 = new EringiDown(new Point(896,352)).AddTo(this);
             var eringi9 = new EringiLeft(new Point(1440,352)).AddTo(this);
             var eringi10 = new EringiRight(new Point(1984,192)).AddTo(this);
+            var eringi13 = new EringiDown(new Point(1760,0)).AddTo(this);
+            var eringi14 = new EringiDown(new Point(1792, 0)).AddTo(this);
+            var eringi15 = new EringiDown(new Point(1824, 0)).AddTo(this);
+
 
             var dropEingi1 = new DropEryngii(new Point(2432,320),new Point(2464,352),new Size(32,64)).AddTo(this);
             
@@ -103,7 +107,10 @@ namespace shuntamu.View.AutumnGround
             var floor74 = new Rock1(new Point(5344,256),new Size(32,64) ).AddTo(this);
             var floor75 = new Rock1(new Point(5792,256),new Size(288,352) ).AddTo(this);
             var floor76 = new Rock1(new Point(2592,256),new Size(64,352) ).AddTo(this);
+            var floor77 = new Rock1(new Point(1696,576),new Size(64,32) ).AddTo(this);
 
+            var eringi11 = new MotionlessKiller(new Point(1792,160), Skin.Eringi).AddTo(this);
+            var eringi12 = new MotionlessKiller(new Point(1824, 160), Skin.Eringi).AddTo(this);
             var vanfloor1 = new VanishBblock(new Point(1696, 512), new Size(64, 32)).AddTo(this);
             var vanfloor2 = new VanishBblock(new Point(1760,0),new Size(96,64) ).AddTo(this);
 
