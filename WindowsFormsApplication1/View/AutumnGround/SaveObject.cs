@@ -33,7 +33,7 @@ namespace shuntamu.View
 
         public void Save()
         {
-            RestartPoint = new Point(Top.X, Top.Y - 96);
+            RestartPoint = new Point(Top.X, Top.Y - 48);
         }
 
         public void Damage()
