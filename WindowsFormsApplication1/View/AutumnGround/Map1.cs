@@ -11,16 +11,18 @@ namespace shuntamu.View.AutumnGround
             var saveObject1 = new SaveObject(new Point(1408, 480)).AddTo(this);
             var saveObject2 = new SaveObject(new Point(3744, 448)).AddTo(this);
 
-            var eringi1 = new Eringi(new Point(448, 224)).AddTo(this);
-            var eringi2 = new Eringi(new Point(800, 480)).AddTo(this);
-            var eringi3 = new Eringi(new Point(1536,288)).AddTo(this);
-            var eringi4 = new Eringi(new Point(1696, 544)).AddTo(this);
-            var eringi5 = new Eringi(new Point(1728,544)).AddTo(this);
-            var eringi6 = new Eringi(new Point(2496,544)).AddTo(this);
+            var eringi1 = new MotionlessKiller(new Point(448, 224),Skin.Eringi).AddTo(this);
+            var eringi2 = new MotionlessKiller(new Point(800, 480),Skin.Eringi).AddTo(this);
+            var eringi3 = new MotionlessKiller(new Point(1536,288),Skin.Eringi).AddTo(this);
+            var eringi4 = new MotionlessKiller(new Point(1696, 544),Skin.Eringi).AddTo(this);
+            var eringi5 = new MotionlessKiller(new Point(1728,544),Skin.Eringi).AddTo(this);
+            var eringi6 = new MotionlessKiller(new Point(2496,544),Skin.Eringi).AddTo(this);
             var eringi7 = new LongEringi(new Point(2560,416)).AddTo(this);
             var eringi8 = new EringiDown(new Point(896,352)).AddTo(this);
             var eringi9 = new EringiLeft(new Point(1440,352)).AddTo(this);
             var eringi10 = new EringiRight(new Point(1984,192)).AddTo(this);
+
+            var dropEingi1 = new DropEryngii(new Point(2432,320),new Point(2464,352),new Size(32,64)).AddTo(this);
             
 
             var clearObject1 = new ClearObject(new Point(6016,192)).AddTo(this);

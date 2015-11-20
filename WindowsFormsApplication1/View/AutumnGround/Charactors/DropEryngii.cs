@@ -31,6 +31,14 @@ namespace shuntamu.View.AutumnGround.Charactors
             };
         }
 
+        public new MapElementBase AddTo(MapBase map)
+        {
+            Map = map;
+            map.AddElement(this);
+            map.AddElement(Erea);
+            return this;
+        } 
+
         public override void Draw(Point top, Size size)
         {
             DX.DrawGraph(top.X, top.Y, eringiHandle, DX.TRUE);
