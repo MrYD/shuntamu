@@ -52,6 +52,7 @@
     <Compile Include="View\AutumnGround\Charactors\EringiLeft.cs" />
     <Compile Include="View\AutumnGround\Charactors\EringiRight.cs" />
     <Compile Include="View\AutumnGround\Charactors\LongEringi.cs" />
+    <Compile Include="View\AutumnGround\Charactors\MovingFloor.cs" />
     <Compile Include="View\AutumnGround\VanishBblock.cs" />
     <Compile Include="View\AutumnGround\ClearObject.cs" />
     <Compile Include="View\Clear\ClearMode.cs" />
