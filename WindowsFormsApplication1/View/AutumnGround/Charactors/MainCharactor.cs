@@ -26,7 +26,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                 if (obj.IsSolid)
                 {
                     _vy = 0;
-                    //  if (obj.Top.Y >= Bottom.Y)
+                      if (obj.Top.Y >= Bottom.Y)
                     {
 
                         if (Vx != 0)

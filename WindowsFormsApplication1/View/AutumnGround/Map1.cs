@@ -115,6 +115,7 @@ namespace shuntamu.View.AutumnGround
             var vanfloor2 = new VanishBblock(new Point(1760,0),new Size(96,64) ).AddTo(this);
 
             var movingfloor1 = new MovingFloor(new Point(2726,256),Size).AddTo(this);
+            var movingfloor2 = new MovingFloor(new Point(3104, 480), Size).AddTo(this);
 
             UpdateElement();
         }

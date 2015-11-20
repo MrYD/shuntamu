@@ -20,7 +20,7 @@ namespace shuntamu.View.AutumnGround
         {
             get
             {
-                long span = time%40;
+                long span = time%32;
                 return span;
             }
         }
@@ -33,7 +33,7 @@ namespace shuntamu.View.AutumnGround
         public override void Update(MapBase map)
         {
             time++;
-            if (Time<20)
+            if (Time<16)
             {
                 Distance = new Point(2, 0);
             }
