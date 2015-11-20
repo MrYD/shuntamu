@@ -119,7 +119,8 @@ namespace shuntamu.View
                     return index;
                 }
             }
-            throw new Exception();
+            //throw new Exception();
+            return 0;
         }
 
         public void Draw(Point zeropoint)
