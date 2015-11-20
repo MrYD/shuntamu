@@ -19,8 +19,11 @@ namespace shuntamu.View.AutumnGround.Charactors
                     _vy = 0;
                     if (Input.Instance.LeftShift)
                     {
-                        _vy = -3;
-                        jumpflame = 1;
+                        if (obj.Top.Y >= Bottom.Y)
+                        {
+                            _vy = -3;
+                            jumpflame = 1;
+                        }
                     }
                 }
             };
@@ -30,7 +33,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                 {
                     _vx = 0;
                 }
-               
+
             };
             HitEvent += obj =>
             {
@@ -41,7 +44,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                 }
                 if (obj is IKiller)
                 {
-                  ((IKiller)obj).Kill();
+                    ((IKiller)obj).Kill();
                     // DX.DrawString(400, 200, "Game Over", DX.GetColor(200, 200, 200));
                 }
             };
