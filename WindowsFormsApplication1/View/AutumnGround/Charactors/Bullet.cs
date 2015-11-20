@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DxLibDLL;
 
 namespace shuntamu.View.AutumnGround.Charactors
 {
@@ -14,9 +15,12 @@ namespace shuntamu.View.AutumnGround.Charactors
     }
     internal class Bullet : MotionObject
     {
+        private int bulletHandle;
         public Bullet(Point top, Direction direction)
             : base(top, new Size(5, 5))
         {
+
+            bulletHandle = DX.LoadGraph(@"../../IWBT素材/スプライト/fireBullet.png");
             _direction = direction;
             HitEvent += obj =>
             {
@@ -45,6 +49,11 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         private Direction _direction;
         private int _bulletLife;
+
+        public override void Draw(Point top, Size size)
+        {
+            DX.DrawGraph(top.X, top.Y, bulletHandle, DX.TRUE);
+        }
 
     }
 }
