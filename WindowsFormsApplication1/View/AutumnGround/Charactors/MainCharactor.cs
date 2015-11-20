@@ -159,11 +159,11 @@ namespace shuntamu.View.AutumnGround.Charactors
                     Bullet bullet;
                     if (Direction == Direction.Right)
                     {
-                        bullet = new Bullet(new Point(Point.X + 11, Point.Y), Direction);
+                        bullet = new Bullet(new Point(Point.X + 11, Point.Y+7), Direction);
                     }
                     else
                     {
-                        bullet = new Bullet(new Point(Point.X - 11, Point.Y), Direction);
+                        bullet = new Bullet(new Point(Point.X - 11, Point.Y+7), Direction);
                     }
                     map.AddElement(bullet);
                     map.UpdateElement();
