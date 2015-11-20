@@ -26,7 +26,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                 if (obj.IsSolid)
                 {
                     _vy = 0;
-                    if (obj.Top.Y >= Bottom.Y)
+                    //  if (obj.Top.Y >= Bottom.Y)
                     {
 
                         if (Vx != 0)
@@ -34,6 +34,10 @@ namespace shuntamu.View.AutumnGround.Charactors
                         else
                         {
                             MainCharactorStatus = MainCharactorStatus.Idle;
+                        }
+                        if (obj is MovingFloor)
+                        {
+                            movingFloor = (MovingFloor)obj;
                         }
                         if (Input.Instance.LeftShift)
                         {
@@ -56,17 +60,18 @@ namespace shuntamu.View.AutumnGround.Charactors
                 obj.OnBeHitEvent();
                 if (obj is SaveObject)
                 {
-                    ((SaveObject) obj).Save();
+                    ((SaveObject)obj).Save();
                 }
                 if (obj is IKiller)
                 {
-                    ((IKiller) obj).Kill();
+                    ((IKiller)obj).Kill();
                     // DX.DrawString(400, 200, "Game Over", DX.GetColor(200, 200, 200));
                 }
             };
 
         }
 
+        private MovingFloor movingFloor;
         private long time = 0;
         private float _vx = 0;
         private float _vy = 0;
@@ -74,17 +79,17 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         public double Flame20
         {
-            get { return (time%20)/20.0; }
+            get { return (time % 20) / 20.0; }
         }
 
         public double Flame50
         {
-            get { return (time%50)/50.0; }
+            get { return (time % 50) / 50.0; }
         }
 
         public double Flame100
         {
-            get { return (time%100)/100.0; }
+            get { return (time % 100) / 100.0; }
         }
 
         public double Flame1000
@@ -106,9 +111,9 @@ namespace shuntamu.View.AutumnGround.Charactors
                 }
                 else
                 {
-                    _vx += +ax/m;
+                    _vx += +ax / m;
                 }
-                return (int) _vx;
+                return (int)_vx;
             }
         }
 
@@ -126,9 +131,9 @@ namespace shuntamu.View.AutumnGround.Charactors
                 }
                 else
                 {
-                    _vy += +ay/m;
+                    _vy += +ay / m;
                 }
-                return (int) _vy;
+                return (int)_vy;
             }
         }
 
@@ -213,8 +218,14 @@ namespace shuntamu.View.AutumnGround.Charactors
             {
                 MainCharactorStatus = MainCharactorStatus.Fall;
             }
+
             base.Update(map);
             Distance = new Point(Vx, Vy);
+            if (movingFloor != null)
+            {
+                Top = new Point(Top.X + movingFloor.Distance.X * 2, Top.Y + movingFloor.Distance.Y * 2);
+                movingFloor = null;
+            }
 
         }
 
@@ -249,22 +260,22 @@ namespace shuntamu.View.AutumnGround.Charactors
                 case MainCharactorStatus.Idle:
                     if (Direction == Direction.Right)
                     {
-                        if (flame <= 1/4.0)
+                        if (flame <= 1 / 4.0)
                         {
                             DX.DrawGraph(top.X - 11, top.Y - 12, playerIdleHandleR1, DX.TRUE);
                             return;
                         }
-                        if (flame > 1/4.0 && flame <= 1/2.0)
+                        if (flame > 1 / 4.0 && flame <= 1 / 2.0)
                         {
                             DX.DrawGraph(top.X - 11, top.Y - 12, playerIdleHandleR2, DX.TRUE);
                             return;
                         }
-                        if (flame > 1/2.0 && flame <= 3/4.0)
+                        if (flame > 1 / 2.0 && flame <= 3 / 4.0)
                         {
                             DX.DrawGraph(top.X - 11, top.Y - 12, playerIdleHandleR3, DX.TRUE);
                             return;
                         }
-                        if (flame > 3/4.0)
+                        if (flame > 3 / 4.0)
                         {
                             DX.DrawGraph(top.X - 11, top.Y - 12, playerIdleHandleR4, DX.TRUE);
                             return;
@@ -272,22 +283,22 @@ namespace shuntamu.View.AutumnGround.Charactors
                     }
                     else
                     {
-                        if (flame <= 1/4.0)
+                        if (flame <= 1 / 4.0)
                         {
                             DX.DrawGraph(top.X - 11, top.Y - 12, playerIdleHandleL1, DX.TRUE);
                             return;
                         }
-                        if (flame > 1/4.0 && flame <= 1/2.0)
+                        if (flame > 1 / 4.0 && flame <= 1 / 2.0)
                         {
                             DX.DrawGraph(top.X - 11, top.Y - 12, playerIdleHandleL2, DX.TRUE);
                             return;
                         }
-                        if (flame > 1/2.0 && flame <= 3/4.0)
+                        if (flame > 1 / 2.0 && flame <= 3 / 4.0)
                         {
                             DX.DrawGraph(top.X - 11, top.Y - 12, playerIdleHandleL3, DX.TRUE);
                             return;
                         }
-                        if (flame > 3/4.0)
+                        if (flame > 3 / 4.0)
                         {
                             DX.DrawGraph(top.X - 11, top.Y - 12, playerIdleHandleL4, DX.TRUE);
                             return;
@@ -345,7 +356,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                 case MainCharactorStatus.Jump:
                     if (Direction == Direction.Right)
                     {
-                        DX.DrawGraph(top.X - 11, top.Y - 12,playerJumpHandleR, DX.TRUE);
+                        DX.DrawGraph(top.X - 11, top.Y - 12, playerJumpHandleR, DX.TRUE);
                     }
                     else
                     {

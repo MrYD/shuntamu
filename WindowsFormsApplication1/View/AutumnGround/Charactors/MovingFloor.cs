@@ -22,7 +22,7 @@ namespace shuntamu.View.AutumnGround
             }
         }
 
-        public MovingFloor(Point top, Size size) : base(top,new Size(32,16) )
+        public MovingFloor(Point top, Size size) : base(top,new Size(96,16) )
         {
            
         }
@@ -32,11 +32,11 @@ namespace shuntamu.View.AutumnGround
             time++;
             if (Time<20)
             {
-                Distance = new Point(5, 0);
+                Distance = new Point(2, 0);
             }
             else
             {
-                Distance = new Point(-5,0);
+                Distance = new Point(-2,0);
             }
             base.Update(map);
         }
