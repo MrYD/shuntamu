@@ -10,14 +10,29 @@ namespace shuntamu.View
     class View
     {
         private static ModeBase[] _modes;
-        public static int ModeNumber { get; set; }
+        private static int _modeNumber;
+
+        public static int ModeNumber
+        {
+            get { return _modeNumber; }
+            set
+            {
+                if (CurrentMode != null)
+                {
+                    CurrentMode.End();
+                    _modeNumber = value;
+                    CurrentMode.Init();
+                }
+                _modeNumber = value;
+            }
+        }
 
         public View()
         {
             _modes = new ModeBase[3];
             ModeNumber = 0;
             _modes[0] = new GameMode1();
-            _modes[1]=new GameOverMode();
+            _modes[1] = new GameOverMode();
             _modes[2] = new ClearMode();
         }
 
@@ -38,7 +53,6 @@ namespace shuntamu.View
 
         public static void Reset()
         {
-           _modes[0]=new GameMode1();
             ModeNumber = 0;
         }
     }

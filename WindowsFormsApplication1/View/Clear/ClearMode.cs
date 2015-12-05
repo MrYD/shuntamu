@@ -14,7 +14,7 @@ namespace shuntamu.View.Clear
         private int handle = DX.LoadGraph(@"../../IWBT素材/スプライト/clearObject.png");
     public override void Draw()
     {
-        DX.DrawGraph(0, 120, handle, DX.FALSE);
+        Init();
     }
 
     public override void Update()
@@ -24,5 +24,15 @@ namespace shuntamu.View.Clear
             View.Reset();
         }
     }
+
+        public override void Init()
+        {
+            DX.DrawGraph(0, 120, handle, DX.FALSE);
+        }
+
+        public override void End()
+        {
+          
+        }
 }
 }

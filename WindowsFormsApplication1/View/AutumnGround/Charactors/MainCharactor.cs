@@ -18,7 +18,16 @@ namespace shuntamu.View.AutumnGround.Charactors
 
     internal class MainCharactor : MotionObject
     {
-        public MainCharactor()
+        public static MainCharactor Instance
+        {
+            get
+            {
+                return _instance ?? (_instance = new MainCharactor());
+            }
+            set { _instance = value; }
+        }
+
+        private MainCharactor()
             : base(SaveObject.RestartPoint, new Size(10, 20))
         {
             MainCharactorStatus = MainCharactorStatus.Idle;
@@ -28,7 +37,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                 if (obj.IsSolid)
                 {
                     _vy = 0;
-                      if (obj.Top.Y >= Bottom.Y)
+                    if (obj.Top.Y >= Bottom.Y)
                     {
 
                         if (Vx != 0)
@@ -73,15 +82,22 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         }
 
+        public void Init()
+        {
+            Top = SaveObject.RestartPoint;
+            MainCharactorStatus = MainCharactorStatus.Idle;
+            Direction = Direction.Right;
+        }
         private MovingFloor movingFloor;
         private long time = 0;
         private float _vx = 0;
         private float _vy = 0;
         public MainCharactorStatus MainCharactorStatus { get; set; }
-
         internal override void Death()
         {
             MainCharactorStatus = MainCharactorStatus.Death;
+            SoundManager.Play("onDeath", DX.DX_PLAYTYPE_BACK);
+            View.ModeNumber = 1;
         }
 
         public double Flame20
@@ -150,8 +166,8 @@ namespace shuntamu.View.AutumnGround.Charactors
         private float m = 10f;
         private int _bulletIntervalCount = BULLETINTERVAL;
         private const int BULLETINTERVAL = 20;
-        private int sndJumpHandle = DX.LoadSoundMem(@"../../IWBT素材/音源/sndJump.wav");
-        
+
+
 
         public override void Update(MapBase map)
         {
@@ -168,11 +184,11 @@ namespace shuntamu.View.AutumnGround.Charactors
                     Bullet bullet;
                     if (Direction == Direction.Right)
                     {
-                        bullet = new Bullet(new Point(Point.X + 11, Point.Y+7), Direction);
+                        bullet = new Bullet(new Point(Point.X + 11, Point.Y + 7), Direction);
                     }
                     else
                     {
-                        bullet = new Bullet(new Point(Point.X - 11, Point.Y+7), Direction);
+                        bullet = new Bullet(new Point(Point.X - 11, Point.Y + 7), Direction);
                     }
                     map.AddElement(bullet);
                     map.UpdateElement();
@@ -188,8 +204,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                     {
                         if (jumpflame == 1)
                         {
-                            DX.ChangeVolumeSoundMem(255, sndJumpHandle);
-                            DX.PlaySoundMem(sndJumpHandle, DX.DX_PLAYTYPE_BACK);
+                            SoundManager.Play("jump", DX.DX_PLAYTYPE_BACK);
                         }
                         jumpflame++;
                         _vy = -10;
@@ -206,7 +221,7 @@ namespace shuntamu.View.AutumnGround.Charactors
             }
             if (Top.Y > 600)
             {
-                View.ModeNumber = 1;
+                Death();
             }
             ay = 5;
             if (Input.Instance.Right)
@@ -265,6 +280,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         private int playerJumpHandleL = DX.LoadGraph(@"../../IWBT素材/スプライト/sprPlayerJumpL.png");
         private int playerFallHandleR = DX.LoadGraph(@"../../IWBT素材/スプライト/sprPlayerFallR.png");
         private int playerFallHandleL = DX.LoadGraph(@"../../IWBT素材/スプライト/sprPlayerFallL.png");
+        private static MainCharactor _instance;
 
         public override void Draw(Point top, Size size)
         {

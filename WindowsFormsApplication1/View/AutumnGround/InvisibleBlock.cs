@@ -5,19 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DxLibDLL;
+using shuntamu.Util;
 
 namespace shuntamu.View.AutumnGround
 {
     class InvisibleBlock:MotionlessObject,IKiller
     {
         private int invisBlockHandle;
-        private int sndInvisBlockHandle;
 
         bool hit = false;
         public InvisibleBlock(Point top) : base(top, new Size(32,32))
         {
             invisBlockHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/sprWWBlock.png");
-            sndInvisBlockHandle = DX.LoadSoundMem(@"../../IWBT素材/音源/sndBlockChange.wav");
         }
 
         public override void Draw(Point top, Size size)
@@ -33,8 +32,7 @@ namespace shuntamu.View.AutumnGround
         {
             if (!hit)
             {
-                DX.ChangeVolumeSoundMem(80, sndInvisBlockHandle);
-                DX.PlaySoundMem(sndInvisBlockHandle, DX.DX_PLAYTYPE_BACK, DX.TRUE);
+                SoundManager.Play("invisBlock", DX.DX_PLAYTYPE_BACK);
             }
             hit = true;
         }

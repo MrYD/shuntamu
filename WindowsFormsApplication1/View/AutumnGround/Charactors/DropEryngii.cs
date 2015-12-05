@@ -63,7 +63,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         private int eringiHandle;
         public void Kill(MapElementBase target)
         {
-            View.ModeNumber = 1;
+            target.Death();
         }
     }
 }

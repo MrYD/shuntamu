@@ -13,7 +13,7 @@ namespace shuntamu.View.GameOver
         private int handle = DX.LoadGraph(@"../../IWBT素材/スプライト/gameOver.png");
         public override void Draw()
         {
-            DX.DrawGraph(0, 0, handle, DX.TRUE);
+           Init();
         }
 
         public override void Update()
@@ -22,6 +22,16 @@ namespace shuntamu.View.GameOver
             {
                 View.Reset();
             }
+        }
+
+        public override void Init()
+        {
+            DX.DrawGraph(0, 0, handle, DX.TRUE);
+        }
+
+        public override void End()
+        {
+            
         }
     }
 }

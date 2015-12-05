@@ -13,5 +13,15 @@ namespace shuntamu.View.Menu
         {
             throw new NotImplementedException();
         }
+
+        public override void Init()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void End()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

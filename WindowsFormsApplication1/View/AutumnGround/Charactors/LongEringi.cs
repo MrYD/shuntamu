@@ -24,7 +24,7 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         public void Kill(MapElementBase target)
         {
-            View.ModeNumber = 1;
+            target.Death();
         }
     }
 }
