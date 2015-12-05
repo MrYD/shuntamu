@@ -47,9 +47,10 @@ namespace shuntamu.View.AutumnGround.Charactors
             DX.DrawGraph(top.X, top.Y, eringiHandle, DX.TRUE);
             //base.Draw(top, size);
         }
-        public void Kill()
+        public void Kill(MapElementBase target)
         {
-            View.ModeNumber = 1;
+            //View.ModeNumber = 1;
+
         }
     }
 }

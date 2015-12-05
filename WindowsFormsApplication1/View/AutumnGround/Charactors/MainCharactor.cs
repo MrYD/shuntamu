@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using DxLibDLL;
 using shuntamu.Util;
 
@@ -11,7 +12,8 @@ namespace shuntamu.View.AutumnGround.Charactors
         Idle,
         Run,
         Jump,
-        Fall
+        Fall,
+        Death
     }
 
     internal class MainCharactor : MotionObject
@@ -64,7 +66,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                 }
                 if (obj is IKiller)
                 {
-                    ((IKiller)obj).Kill();
+                    ((IKiller)obj).Kill(this);
                     // DX.DrawString(400, 200, "Game Over", DX.GetColor(200, 200, 200));
                 }
             };
@@ -76,6 +78,11 @@ namespace shuntamu.View.AutumnGround.Charactors
         private float _vx = 0;
         private float _vy = 0;
         public MainCharactorStatus MainCharactorStatus { get; set; }
+
+        internal override void Death()
+        {
+            MainCharactorStatus = MainCharactorStatus.Death;
+        }
 
         public double Flame20
         {
@@ -143,6 +150,8 @@ namespace shuntamu.View.AutumnGround.Charactors
         private float m = 10f;
         private int _bulletIntervalCount = BULLETINTERVAL;
         private const int BULLETINTERVAL = 20;
+        private int sndJumpHandle = DX.LoadSoundMem(@"../../IWBT素材/音源/sndJump.wav");
+        
 
         public override void Update(MapBase map)
         {
@@ -177,6 +186,11 @@ namespace shuntamu.View.AutumnGround.Charactors
                 {
                     if (jumpflame < 20)
                     {
+                        if (jumpflame == 1)
+                        {
+                            DX.ChangeVolumeSoundMem(255, sndJumpHandle);
+                            DX.PlaySoundMem(sndJumpHandle, DX.DX_PLAYTYPE_BACK);
+                        }
                         jumpflame++;
                         _vy = -10;
                     }
@@ -372,6 +386,9 @@ namespace shuntamu.View.AutumnGround.Charactors
                     {
                         DX.DrawGraph(top.X - 11, top.Y - 12, playerFallHandleL, DX.TRUE);
                     }
+                    break;
+                case MainCharactorStatus.Death:
+                    DX.DrawGraph(top.X - 11, top.Y - 12, playerFallHandleL, DX.TRUE);
                     break;
             }
         }

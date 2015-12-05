@@ -35,5 +35,10 @@ namespace shuntamu.View
             var handler = BeHitEvent;
             if (handler != null) handler();
         }
+
+        virtual internal void Death()
+        {
+            
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         }
 
 
-        public void Kill()
+        public void Kill(MapElementBase target)
         {
             IsActive = false;
             Map.UpdateElement();

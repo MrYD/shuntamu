@@ -22,7 +22,7 @@ namespace shuntamu.View.AutumnGround.Charactors
             //base.Draw(top, size);
         }
 
-        public void Kill()
+        public void Kill(MapElementBase target)
         {
             View.ModeNumber = 1;
         }

@@ -26,6 +26,10 @@ namespace shuntamu.View.AutumnGround
             var eringi14 = new EringiDown(new Point(1792, 0)).AddTo(this);
             var eringi15 = new EringiDown(new Point(1824, 0)).AddTo(this);
 
+            var invisBlock1 = new InvisibleBlock(new Point(0, 64)).AddTo(this);
+            var invisBlock2 = new InvisibleBlock(new Point(0, 96)).AddTo(this);
+            var invisBlock3 = new InvisibleBlock(new Point(0, 128)).AddTo(this);
+            var invisBlock4 = new InvisibleBlock(new Point(0, 160)).AddTo(this);
 
             var dropEingi1 = new DropEryngii(new Point(2432,320),new Point(2464,352),new Size(32,64)).AddTo(this);
             

@@ -2,7 +2,7 @@
 {
     interface IKiller
     {
-        void Kill();
+        void Kill(MapElementBase target);
     }
 
 }

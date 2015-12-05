@@ -10,7 +10,7 @@ namespace shuntamu.View.AutumnGround
 {
     class ClearObject:MotionlessObject,IKiller
     {
-        public void Kill()
+        public void Kill(MapElementBase target)
         {
             View.ModeNumber = 2;
             SaveObject.RestartPoint = new Point(32, 128);

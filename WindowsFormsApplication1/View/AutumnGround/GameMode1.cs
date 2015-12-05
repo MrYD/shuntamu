@@ -10,9 +10,12 @@ namespace shuntamu.View.AutumnGround
         private readonly Map1 _map1;
         private readonly MainCharactor _mario;
         int backgroundHandle = DX.LoadGraph(@"../../IWBT素材/背景/夜_トランジション.png");
+        private int bgmHandle = DX.LoadSoundMem(@"../../IWBT素材/音源/bgm_loop_103.wav");
         public GameMode1()
         {
-            DX.PlaySoundFile(@"../../IWBT素材/音源/bgm_loop_103.wav", DX.DX_PLAYTYPE_LOOP);
+            DX.ChangeVolumeSoundMem(100, bgmHandle);
+            DX.PlaySoundMem(bgmHandle, DX.DX_PLAYTYPE_LOOP);
+       
             _mario = new MainCharactor();
             _map1 = new Map1();
         }
