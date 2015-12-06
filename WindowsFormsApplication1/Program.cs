@@ -22,6 +22,7 @@ namespace shuntamu
             {
                 view.Update();
                 view.Draw();
+                GameTimer.Update();
                 Input.Instance.Update();
             }
             DX.DxLib_End();

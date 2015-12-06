@@ -9,32 +9,37 @@ using shuntamu.Util;
 
 namespace shuntamu.View.AutumnGround
 {
-    class InvisibleBlock:MotionlessObject,IKiller
+    class InvisibleBlock : MotionlessObject, IKiller,IEnemy
     {
         private int invisBlockHandle;
 
-        bool hit = false;
-        public InvisibleBlock(Point top) : base(top, new Size(32,32))
+        public InvisibleBlock(Point top) : base(top, new Size(32, 32))
         {
             invisBlockHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/sprWWBlock.png");
+            IsVisible = false;
         }
 
         public override void Draw(Point top, Size size)
         {
-            if (hit)
-            {
-                DX.DrawGraph(top.X, top.Y, invisBlockHandle, DX.TRUE);
-                
-            }
+            DX.DrawGraph(top.X, top.Y, invisBlockHandle, DX.TRUE);
         }
 
         public void Kill(MapElementBase target)
         {
-            if (!hit)
+            if (!IsVisible)
             {
                 SoundManager.Play("invisBlock", DX.DX_PLAYTYPE_BACK);
+                IsVisible = true;
+            }              
+        }
+
+        public void Damage()
+        {
+            if (!IsVisible)
+            {
+                SoundManager.Play("invisBlock", DX.DX_PLAYTYPE_BACK);
+                IsVisible = true;
             }
-            hit = true;
         }
     }
 }

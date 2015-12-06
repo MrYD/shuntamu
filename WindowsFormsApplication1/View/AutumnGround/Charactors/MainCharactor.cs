@@ -89,35 +89,15 @@ namespace shuntamu.View.AutumnGround.Charactors
             Direction = Direction.Right;
         }
         private MovingFloor movingFloor;
-        private long time = 0;
         private float _vx = 0;
         private float _vy = 0;
         public MainCharactorStatus MainCharactorStatus { get; set; }
+
         internal override void Death()
         {
             MainCharactorStatus = MainCharactorStatus.Death;
             SoundManager.Play("onDeath", DX.DX_PLAYTYPE_BACK);
             View.ModeNumber = 1;
-        }
-
-        public double Flame20
-        {
-            get { return (time % 20) / 20.0; }
-        }
-
-        public double Flame50
-        {
-            get { return (time % 50) / 50.0; }
-        }
-
-        public double Flame100
-        {
-            get { return (time % 100) / 100.0; }
-        }
-
-        public double Flame1000
-        {
-            get { return (time % 1000) / 1000.0; }
         }
 
         private int Vx
@@ -134,7 +114,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                 }
                 else
                 {
-                    _vx += +ax / m;
+                    _vx += ax / m;
                 }
                 return (int)_vx;
             }
@@ -154,7 +134,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                 }
                 else
                 {
-                    _vy += +ay / m;
+                    _vy += ay / m;
                 }
                 return (int)_vy;
             }
@@ -167,16 +147,9 @@ namespace shuntamu.View.AutumnGround.Charactors
         private int _bulletIntervalCount = BULLETINTERVAL;
         private const int BULLETINTERVAL = 20;
 
-
-
         public override void Update(MapBase map)
         {
-            time++;
-            if (_bulletIntervalCount > 0)
-            {
-                _bulletIntervalCount--;
-            }
-
+            // 銃
             if (Input.Instance.Z)
             {
                 if (_bulletIntervalCount <= 0)
@@ -195,7 +168,11 @@ namespace shuntamu.View.AutumnGround.Charactors
                     _bulletIntervalCount = BULLETINTERVAL;
                 }
             }
-
+            if (_bulletIntervalCount > 0)
+            {
+                _bulletIntervalCount--;
+            }
+            // ジャンプ
             if (Input.Instance.LeftShift)
             {
                 if (jumpflame != 0)
@@ -219,25 +196,32 @@ namespace shuntamu.View.AutumnGround.Charactors
             {
                 jumpflame = 0;
             }
-            if (Top.Y > 600)
-            {
-                Death();
-            }
+            // 移動
             ay = 5;
+            ax = 0;          
             if (Input.Instance.Right)
             {
                 Direction = Direction.Right;
-                ax = 5;
+                ax += 5;
             }
-            else if (Input.Instance.Left)
+            if (Input.Instance.Left)
             {
                 Direction = Direction.Left;
-                ax = -5;
+                ax -= 5;
             }
-            else
+            if (!Input.Instance.Right && !Input.Instance.Left)
             {
-                ax = 0;
                 _vx = 0;
+            }
+            if (movingFloor != null)
+            {
+                Top = new Point(Top.X + movingFloor.Distance.X * 2, Top.Y + movingFloor.Distance.Y * 2);
+                movingFloor = null;
+            }
+            // 状態
+            if (Top.Y > 600)
+            {
+                Death();
             }
             if (Vy < 0)
             {
@@ -247,19 +231,12 @@ namespace shuntamu.View.AutumnGround.Charactors
             {
                 MainCharactorStatus = MainCharactorStatus.Fall;
             }
-
+            // 更新
             base.Update(map);
-            Distance = new Point(Vx, Vy);
-            if (movingFloor != null)
-            {
-                Top = new Point(Top.X + movingFloor.Distance.X * 2, Top.Y + movingFloor.Distance.Y * 2);
-                movingFloor = null;
-            }
-
+            Distance = new Point(Vx, Vy);          
         }
 
         public Direction Direction { get; set; }
-
         private int playerIdleHandleR1 = DX.LoadGraph(@"../../IWBT素材/スプライト/sprPlayerIdleR1.png");
         private int playerIdleHandleR2 = DX.LoadGraph(@"../../IWBT素材/スプライト/sprPlayerIdleR2.png");
         private int playerIdleHandleR3 = DX.LoadGraph(@"../../IWBT素材/スプライト/sprPlayerIdleR3.png");
@@ -284,7 +261,7 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         public override void Draw(Point top, Size size)
         {
-            double flame = Flame20;
+            double flame = GameTimer.Loop(20);
             switch (MainCharactorStatus)
             {
                 case MainCharactorStatus.Idle:
