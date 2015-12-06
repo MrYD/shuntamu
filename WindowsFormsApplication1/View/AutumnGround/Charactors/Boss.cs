@@ -74,7 +74,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                 map.UpdateElement();
             }
 
-            Size = new Size((int)(baseSize.Width * Math.Sin(GameTimer.Frame / 50.0)), (int)(baseSize.Height * Math.Sin(GameTimer.Frame / 50.0)));
+            Size = new Size(Math.Abs((int)(baseSize.Width * Math.Sin(GameTimer.Frame / 50.0))), Math.Abs((int)(baseSize.Height * Math.Sin(GameTimer.Frame / 50.0))));
             Top = basePoint + new Size((baseSize.Width - Size.Width)/2, (baseSize.Height - Size.Height)/2);
             base.Update(map);
         }
