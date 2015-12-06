@@ -9,7 +9,7 @@ namespace shuntamu.View.AutumnGround.Charactors
 {
     class BossBullet : BulletBase,IKiller
     {
-        public BossBullet(Point top) : base(top, new Size(20, 20), "")
+        public BossBullet(Point top) : base(top, new Size(15, 15), "")
         {
             double x = MainCharactor.Instance.Top.X -5 - top.X;
             double y = MainCharactor.Instance.Top.Y -5 - top.Y;
