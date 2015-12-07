@@ -128,7 +128,8 @@ namespace shuntamu.View
         {
             foreach (var element in Elements)
             {
-                element.Draw(zeropoint);
+                if (element.IsVisible)
+                    element.Draw(zeropoint);
             }
         }
 

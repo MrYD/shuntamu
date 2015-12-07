@@ -14,6 +14,7 @@ namespace shuntamu.View
         {
             IsActive = true;
             IsSolid = true;
+            IsVisible = true;
         }
         public event Action BeHitEvent;
 
@@ -29,6 +30,8 @@ namespace shuntamu.View
         public bool IsActive { get; set; }
 
         public bool IsSolid { get; set; }
+
+        public bool IsVisible { get; set; }
 
         public void OnBeHitEvent()
         {
