@@ -31,8 +31,9 @@ namespace shuntamu.View.AutumnGround
             var invisBlock3 = new InvisibleBlock(new Point(0, 128)).AddTo(this);
             var invisBlock4 = new InvisibleBlock(new Point(0, 160)).AddTo(this);
 
-            var dropEingi1 = new DropEryngii(new Point(2432,320),new Point(2464,352),new Size(32,64)).AddTo(this);
-            
+            var dropEringi1 = new MotionKiller(new Point(2432,320),new Point(2464,352),new Size(32,64),0,5).AddTo(this);
+            var vanEringi1 = new VanishKiller(new Point(224,160),new Point(128,96), new Size(32,32) ).AddTo(this);
+
 
             var clearObject1 = new ClearObject(new Point(6016,192)).AddTo(this);
 
@@ -59,13 +60,13 @@ namespace shuntamu.View.AutumnGround
             var floor21 = new Rock1(new Point(1600,128),new Size(288,96) ).AddTo(this);
             var floor22 = new Rock1(new Point(1952,128),new Size(32,128) ).AddTo(this);
             var floor23 = new Rock1(new Point(1952,352),new Size(32,256) ).AddTo(this);
-            var floor24 = new Rock1(new Point(1984,384),new Size(32,224) ).AddTo(this);
-            var floor25 = new Rock1(new Point(2016,448),new Size(32,160) ).AddTo(this);
-            var floor26 = new Rock1(new Point(2048,512),new Size(128,96) ).AddTo(this);
+            var floor24 = new Rock1(new Point(1984,416),new Size(32,192) ).AddTo(this);
+            //var floor25 = new Rock1(new Point(2016,448),new Size(32,160) ).AddTo(this);
+            var floor26 = new Rock1(new Point(2016,512),new Size(160,96) ).AddTo(this);
             var floor27 = new Rock1(new Point(1984,128),new Size(224,64) ).AddTo(this);
-            var floor28 = new Rock1(new Point(2080,320),new Size(96,64) ).AddTo(this);
+            var floor28 = new Rock1(new Point(2080,352),new Size(96,64) ).AddTo(this);
             var floor29 = new Rock1(new Point(2304,416),new Size(160,64) ).AddTo(this);
-            var floor30 = new Rock1(new Point(2304,576),new Size(224,32) ).AddTo(this);
+            var floor30 = new Rock1(new Point(2176,576),new Size(352,32) ).AddTo(this);
             var floor31 = new Rock1(new Point(2304,256),new Size(256,64) ).AddTo(this);
             var floor32 = new Rock1(new Point(2528,480),new Size(64,128) ).AddTo(this);
             var floor33 = new Rock1(new Point(2560,256),new Size(32,96) ).AddTo(this);
@@ -116,8 +117,8 @@ namespace shuntamu.View.AutumnGround
 
             var eringi11 = new MotionlessKiller(new Point(1792,160), Skin.Eringi).AddTo(this);
             var eringi12 = new MotionlessKiller(new Point(1824, 160), Skin.Eringi).AddTo(this);
-            var vanfloor1 = new VanishBblock(new Point(1696, 512), new Size(64, 32)).AddTo(this);
-            var vanfloor2 = new VanishBblock(new Point(1760,0),new Size(96,64) ).AddTo(this);
+            var vanfloor1 = new VanishBlock(new Point(1696, 512), new Size(64, 32)).AddTo(this);
+            var vanfloor2 = new VanishBlock(new Point(1760,0),new Size(96,64) ).AddTo(this);
 
             var movingfloor1 = new MovingFloor(new Point(2726,256),Size).AddTo(this);
             var movingfloor2 = new MovingFloor(new Point(3136, 480), Size).AddTo(this);

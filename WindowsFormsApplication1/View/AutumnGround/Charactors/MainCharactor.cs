@@ -144,9 +144,9 @@ namespace shuntamu.View.AutumnGround.Charactors
         {
             get
             {
-                if (_vy > 15)
+                if (_vy > 12)
                 {
-                    _vy = 15;
+                    _vy = 12;
                 }
                 else if (_vy < -20)
                 {
@@ -163,7 +163,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         private int jumpflame = 0;
         private float ax;
         private float ay;
-        private float m = 10f;
+        private float m = 12f;
         private int _bulletIntervalCount = BULLETINTERVAL;
         private const int BULLETINTERVAL = 20;
 
@@ -207,7 +207,7 @@ namespace shuntamu.View.AutumnGround.Charactors
                             SoundManager.Play("jump", DX.DX_PLAYTYPE_BACK);
                         }
                         jumpflame++;
-                        _vy = -10;
+                        _vy = -8;
                     }
                     else
                     {

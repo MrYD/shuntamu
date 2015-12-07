@@ -33,8 +33,8 @@ namespace shuntamu.View.AutumnGround
         public override void Draw()
         {
 
-            int y=0;
-           // if (_mario.Top.Y > 500)
+            int y = 0;
+            // if (_mario.Top.Y > 500)
             //{
             //    y = 0;
             //}
@@ -43,10 +43,19 @@ namespace shuntamu.View.AutumnGround
             //    y = 300 - _mario.Top.Y;
             //}
 
+            int x;
+            if (400 - _mario.Top.X < 0)
+            {
+                x = 400 - _mario.Top.X;
+            }
+            else
+            {
+                x = 0;
+            }
          
             DX.DrawGraph(0,0, backgroundHandle, DX.TRUE);
         
-             var p = new Point(400-_mario.Top.X,y);
+             var p = new Point(x,y);
             _map1.Draw(p);
             _mario.Draw(p);
         }

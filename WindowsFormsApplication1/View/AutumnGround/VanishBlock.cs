@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace shuntamu.View.AutumnGround.Charactors
 {
-    class VanishBblock:Rock1,IKiller
+    class VanishBlock:Rock1,IKiller
     {
 
-        public VanishBblock(Point top, Size size) : base(top, size)
+        public VanishBlock(Point top, Size size) : base(top, size)
         {
         }
 

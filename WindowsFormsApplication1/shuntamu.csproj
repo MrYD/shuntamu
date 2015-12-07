@@ -49,16 +49,17 @@
   <ItemGroup>
     <Compile Include="Util\Input.cs" />
     <Compile Include="View\AutumnGround\Charactors\Bullet.cs" />
-    <Compile Include="View\AutumnGround\Charactors\DropEryngii.cs" />
+    <Compile Include="View\AutumnGround\Charactors\MotionKiller.cs" />
     <Compile Include="View\AutumnGround\Charactors\MotionlessKiller.cs" />
     <Compile Include="View\AutumnGround\Charactors\EringiDown.cs" />
     <Compile Include="View\AutumnGround\Charactors\EringiLeft.cs" />
     <Compile Include="View\AutumnGround\Charactors\EringiRight.cs" />
     <Compile Include="View\AutumnGround\Charactors\LongEringi.cs" />
     <Compile Include="View\AutumnGround\Charactors\MovingFloor.cs" />
+    <Compile Include="View\AutumnGround\Charactors\VanishKiller.cs" />
     <Compile Include="View\AutumnGround\InvisibleBlock.cs" />
     <Compile Include="Util\SoundManager.cs" />
-    <Compile Include="View\AutumnGround\VanishBblock.cs" />
+    <Compile Include="View\AutumnGround\VanishBlock.cs" />
     <Compile Include="View\AutumnGround\ClearObject.cs" />
     <Compile Include="View\Clear\ClearMode.cs" />
     <Compile Include="View\IKiller.cs" />

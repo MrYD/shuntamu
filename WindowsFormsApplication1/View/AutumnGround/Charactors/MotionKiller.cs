@@ -8,18 +8,20 @@ using DxLibDLL;
 
 namespace shuntamu.View.AutumnGround.Charactors
 {
-    class DropEryngii :MotionObject, IEnemy,IKiller
+    class MotionKiller :MotionObject, IEnemy,IKiller
     {
 
         public MotionlessObject Erea { get; set; }
 
         private bool _isTrigered = false;
+        int y;
+        int x;
 
         public void Damage()
         {
         }
 
-        public DropEryngii(Point top, Point ereatop, Size ereasize)
+        public MotionKiller(Point top, Point ereatop, Size ereasize,int moveX,int moveY)
             : base(top, new Size(32, 32))
         {
             eringiHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringi_S.png");
@@ -29,6 +31,8 @@ namespace shuntamu.View.AutumnGround.Charactors
             {
                 _isTrigered = true;
             };
+            x = moveX;
+            y = moveY;
         }
 
         public new MapElementBase AddTo(MapBase map)
@@ -48,8 +52,6 @@ namespace shuntamu.View.AutumnGround.Charactors
         {
             if (_isTrigered)
             {
-                int y = 5;
-                int x = 0;
                 Distance = new Point(x, y);         
             }
             else
