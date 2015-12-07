@@ -37,7 +37,6 @@ namespace shuntamu.View.AutumnGround
 
             var clearObject1 = new ClearObject(new Point(6016,192)).AddTo(this);
 
-            var dropEingi1 = new DropEryngii(new Point(2432,320),new Point(2464,352),new Size(32,64)).AddTo(this);
             var floor1 = new Rock1(new Point(0,0), new Size(736, 64)).AddTo(this);
             var floor2 = new Rock1(new Point(0,192), new Size(256, 416)).AddTo(this);
             var floor3 = new Rock1(new Point(352,256),new Size(224,352) ).AddTo(this);

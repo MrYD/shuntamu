@@ -50,13 +50,11 @@
     <Compile Include="Util\Animation.cs" />
     <Compile Include="Util\GameTimer.cs" />
     <Compile Include="Util\Input.cs" />
-    <Compile Include="View\AutumnGround\Charactors\Bullet.cs" />
     <Compile Include="View\AutumnGround\Charactors\MotionKiller.cs" />
     <Compile Include="View\AutumnGround\BulletBase.cs" />
     <Compile Include="View\AutumnGround\Charactors\Boss.cs" />
     <Compile Include="View\AutumnGround\Bullet.cs" />
     <Compile Include="View\AutumnGround\Charactors\BossBullet.cs" />
-    <Compile Include="View\AutumnGround\Charactors\DropEryngii.cs" />
     <Compile Include="View\AutumnGround\Charactors\MotionlessKiller.cs" />
     <Compile Include="View\AutumnGround\Charactors\EringiDown.cs" />
     <Compile Include="View\AutumnGround\Charactors\EringiLeft.cs" />
