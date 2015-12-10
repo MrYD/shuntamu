@@ -42,7 +42,7 @@ namespace shuntamu.Util
             AddSound("BGM", @"../../IWBT素材/音源/bgm_loop_103.wav",80);
             AddSound("onDeath", @"../../IWBT素材/音源/sndOnDeath.mp3",80);
             AddSound("jump", @"../../IWBT素材/音源/sndJump.wav");
-            AddSound("invisBlock", @"../../IWBT素材/音源/sndBlockChange.wav",80);
+            AddSound("blockChange", @"../../IWBT素材/音源/sndBlockChange.wav",80);
             AddSound("death", @"../../IWBT素材/音源/sndDeath.wav");
         }
 

@@ -28,7 +28,7 @@ namespace shuntamu.View.AutumnGround
         {
             if (!IsVisible)
             {
-                SoundManager.Play("invisBlock", DX.DX_PLAYTYPE_BACK);
+                SoundManager.Play("blockChange", DX.DX_PLAYTYPE_BACK);
                 IsVisible = true;
             }              
         }
@@ -37,7 +37,7 @@ namespace shuntamu.View.AutumnGround
         {
             if (!IsVisible)
             {
-                SoundManager.Play("invisBlock", DX.DX_PLAYTYPE_BACK);
+                SoundManager.Play("blockChange", DX.DX_PLAYTYPE_BACK);
                 IsVisible = true;
             }
         }

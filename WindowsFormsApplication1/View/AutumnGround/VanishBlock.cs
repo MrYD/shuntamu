@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DxLibDLL;
+using shuntamu.Util;
 
 namespace shuntamu.View.AutumnGround.Charactors
 {
@@ -18,6 +20,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         public void Kill(MapElementBase target)
         {
             IsActive = false;
+            SoundManager.Play("blockChange", DX.DX_PLAYTYPE_BACK);
             Map.UpdateElement();
         }
     }

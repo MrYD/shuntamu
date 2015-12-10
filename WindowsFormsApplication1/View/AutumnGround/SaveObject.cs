@@ -11,10 +11,10 @@ namespace shuntamu.View
 {
     class SaveObject : MotionlessObject, IEnemy
     {
-        //private static Point _restartPoint = new Point(64, 128);
+        private static Point _restartPoint = new Point(64, 128);
         //private static Point _restartPoint = new Point(1408, 480 - 48);
         //private static Point _restartPoint = new Point(2560, 224 - 48);
-        private static Point _restartPoint = new Point(3744, 448 - 48);
+        //private static Point _restartPoint = new Point(3744, 448 - 48);
 
         public SaveObject(Point top)
             : base(top, new Size(32, 32))

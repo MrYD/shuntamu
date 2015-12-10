@@ -34,7 +34,6 @@ namespace shuntamu.View.AutumnGround
             var dropEringi1 = new MotionKiller(new Point(2432,320),new Point(2464,352),new Size(32,64),0,5).AddTo(this);
             var vanEringi1 = new VanishKiller(new Point(224,160),new Point(128,96), new Size(32,32) ).AddTo(this);
 
-
             var clearObject1 = new ClearObject(new Point(6016,192)).AddTo(this);
 
             var floor1 = new Rock1(new Point(0,0), new Size(736, 64)).AddTo(this);
