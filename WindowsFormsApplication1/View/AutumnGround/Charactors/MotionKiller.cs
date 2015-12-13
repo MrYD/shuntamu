@@ -13,6 +13,7 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         public MotionlessObject Erea { get; set; }
 
+        private int eringiHandle;
         private bool _isTrigered = false;
         int y;
         int x;
@@ -21,10 +22,9 @@ namespace shuntamu.View.AutumnGround.Charactors
         {
         }
 
-        public MotionKiller(Point top, Point ereatop, Size ereasize,int moveX,int moveY)
+        public MotionKiller(Point top, Point ereatop, Size ereasize,int moveX,int moveY,Skin skin)
             : base(top, new Size(32, 32))
         {
-            eringiHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringi_S.png");
             Erea = new MotionlessObject(ereatop, ereasize);
             Erea.IsSolid = false;
             Erea.BeHitEvent += () =>
@@ -33,6 +33,20 @@ namespace shuntamu.View.AutumnGround.Charactors
             };
             x = moveX;
             y = moveY;
+
+            switch (skin)
+            {
+                case Skin.EringiUp:
+                    eringiHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringi_S.png");
+                    Size = new Size(32, 32);
+                    break;
+                case Skin.EringiDown:
+                    eringiHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringiDownS.png");
+                    Size = new Size(32, 32);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("skin", skin, null);
+            }
         }
 
         public new MapElementBase AddTo(MapBase map)
@@ -62,7 +76,6 @@ namespace shuntamu.View.AutumnGround.Charactors
            
         }
 
-        private int eringiHandle;
         public void Kill(MapElementBase target)
         {
             target.Death();

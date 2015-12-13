@@ -11,8 +11,10 @@ namespace shuntamu.View.AutumnGround.Charactors
 {
     enum Skin
     {
-        Eringi,
+        EringiUp,
         EringiDown,
+        LongEringiUp,
+        LongEringiDown,
         BambooSpear
     }
     class MotionlessKiller:MotionlessObject,IKiller
@@ -24,7 +26,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         {
             switch (skin)
             {
-                case Skin.Eringi:
+                case Skin.EringiUp:
                     eringiHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringi_S.png");
                     Size = new Size(32, 32);
                     break;

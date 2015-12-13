@@ -16,7 +16,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         private bool _isTriggered = false;
         private int skinHandle;
 
-        public VanishKiller(Point top,Point triggerTop,Size triggerSize) 
+        public VanishKiller(Point top,Point triggerTop,Size triggerSize,Skin skin) 
             : base(top, new Size(32,32))
         {
             skinHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringi_S.png");
@@ -26,6 +26,26 @@ namespace shuntamu.View.AutumnGround.Charactors
             {
                 _isTriggered = true;
             };
+
+            switch (skin)
+            {
+                case Skin.EringiUp:
+                    skinHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringi_S.png");
+                    Size = new Size(32, 32);
+                    break;
+                case Skin.EringiDown:
+                    skinHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringiDownS.png");
+                    Size = new Size(32, 32);
+                    break;
+                case Skin.LongEringiUp:
+                    skinHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/longEringiUp.png");
+                    Size = new Size(32, 64);
+                    break;
+                case Skin.LongEringiDown:
+                    skinHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/longEringiDown.png");
+                     Size = new Size(32, 64);
+                    break;
+            }
         }
 
         public new MapElementBase AddTo(MapBase map)
