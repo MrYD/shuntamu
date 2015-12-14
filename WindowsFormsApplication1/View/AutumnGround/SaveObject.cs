@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DxLibDLL;
+using shuntamu.Util;
 using shuntamu.View.AutumnGround.Charactors;
 
 namespace shuntamu.View
@@ -19,7 +20,7 @@ namespace shuntamu.View
         public SaveObject(Point top)
             : base(top, new Size(32, 32))
         {
-
+            IsSolid = false;
         }
 
         public static Point RestartPoint
@@ -28,7 +29,7 @@ namespace shuntamu.View
             set { _restartPoint = value; }
         }
 
-        private int handle = DX.LoadGraph(@"../../IWBT素材/スプライト/ゴールオーブ.png");
+        private int handle = DX.LoadGraph(@"../../IWBT素材/スプライト/saveFlag.png");
         public override void Draw(Point top, Size size)
         {
             DX.DrawGraph(top.X, top.Y, handle, DX.TRUE);
@@ -36,7 +37,10 @@ namespace shuntamu.View
 
         public void Save()
         {
-            RestartPoint = new Point(Top.X, Top.Y - 48);
+            RestartPoint = new Point(Top.X + 48, Top.Y - 32);
+            SoundManager.Play("save",DX.DX_PLAYTYPE_BACK);
+            IsActive = false;
+            Map.UpdateElement();
         }
 
         public void Damage()

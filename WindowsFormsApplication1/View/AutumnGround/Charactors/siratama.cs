@@ -18,11 +18,11 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         public override void Update(MapBase map)
         {
-            int y = 5;
-            int x = 0;
-            Distance = new Point(x, y);
+            //int y = 5;
+            //int x = 0;
+            //Distance = new Point(x, y);
 
-            base.Update(map);
+            //base.Update(map);
         }
 
         public override void Draw(Point top, Size size)
@@ -38,7 +38,7 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         public void Kill(MapElementBase target)
         {
-            View.ModeNumber = 1;
+            target.Death();
         }
     }
 }
