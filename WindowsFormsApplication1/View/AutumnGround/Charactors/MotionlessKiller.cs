@@ -15,6 +15,8 @@ namespace shuntamu.View.AutumnGround.Charactors
         EringiDown,
         LongEringiUp,
         LongEringiDown,
+        LongEringiTrap01,
+        LongEringiTrap02,
         BambooSpear
     }
     class MotionlessKiller:MotionlessObject,IKiller
@@ -37,6 +39,10 @@ namespace shuntamu.View.AutumnGround.Charactors
                 case Skin.BambooSpear:
                     eringiHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/bambooSpear.png");
                     Size = new Size(32, 32);
+                    break;
+                case Skin.LongEringiTrap01:
+                    eringiHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringi_L_left01.png");
+                    Size=new Size(32,32);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("skin", skin, null);

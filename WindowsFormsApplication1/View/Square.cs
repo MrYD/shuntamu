@@ -33,8 +33,8 @@ namespace shuntamu.View
         
         public virtual void Draw(Point top, Size size)
         {
-            DX.DrawBox(top.X, top.Y, (top + size).X,
-               (top + Size).Y, DX.GetColor(0, 0, 255), DX.TRUE);
+            //DX.DrawBox(top.X, top.Y, (top + size).X,
+            //   (top + Size).Y, DX.GetColor(0, 0, 255), DX.TRUE);
         }
     }
 }

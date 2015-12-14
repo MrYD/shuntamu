@@ -26,6 +26,7 @@ namespace shuntamu.View.AutumnGround
             var eringi14 = new EringiDown(new Point(1792, 0)).AddTo(this);
             var eringi15 = new EringiDown(new Point(1824, 0)).AddTo(this);
             var eringi16 = new MotionlessKiller(new Point(4544, 480), Skin.EringiUp).AddTo(this);
+            var eringi17 = new MotionlessKiller(new Point(3870,224), Skin.LongEringiTrap01).AddTo(this);
 
             var invisBlock1 = new InvisibleBlock(new Point(0, 64)).AddTo(this);
             var invisBlock2 = new InvisibleBlock(new Point(0, 96)).AddTo(this);
@@ -37,13 +38,14 @@ namespace shuntamu.View.AutumnGround
             var invisBlock8 = new InvisibleBlock(new Point(5056, 448)).AddTo(this);
             var invisBlock9 = new InvisibleBlock(new Point(5088, 448)).AddTo(this);
 
-            var motionEringi1 = new MotionKiller(new Point(2304,383),new Point(2464,352),new Size(32,64),5,0,Skin.EringiUp).AddTo(this);
+            var motionEringi1 = new MotionKiller(new Point(2304,383),new Point(2464,320),new Size(32,64),5,0,Skin.EringiUp).AddTo(this);
             var motionEringi2 = new MotionKiller(new Point(4193, 224), new Point(4192, 192), new Size(101, 32), 0, 15, Skin.EringiUp).AddTo(this);
             var motionEringi3 = new MotionKiller(new Point(4226, 224), new Point(4192, 192), new Size(101, 32), 0, 15, Skin.EringiUp).AddTo(this);
             var motionEringi4 = new MotionKiller(new Point(4259, 224), new Point(4192, 192), new Size(101, 32), 0, 15, Skin.EringiUp).AddTo(this);
             var motionEringi5 = new MotionKiller(new Point(4736,481), new Point(4896,480), new Size(32,32), 6, 0,Skin.EringiUp).AddTo(this);
+            var motionEringi6 = new MotionKiller(new Point(3903,224), new Point(3904,320), new Size(32,32), 0, 5, Skin.LongEringiTrap02).AddTo(this);
 
-            var vanEringi1 = new VanishKiller(new Point(224,160),new Point(128,96), new Size(32,32),Skin.EringiUp ).AddTo(this);
+            //var vanEringi1 = new VanishKiller(new Point(224,160),new Point(128,96), new Size(32,32),Skin.EringiUp ).AddTo(this);
             var vanEringi2 = new VanishKiller(new Point(2144,480), new Point(2336,320), new Size(32,96), Skin.EringiUp).AddTo(this);
             var vanEringi3 = new VanishKiller(new Point(2144, 416), new Point(2336, 320), new Size(32, 96), Skin.EringiDown).AddTo(this);
             var vanEringi4 = new VanishKiller(new Point(2144,192), new Point(1952,256), new Size(32,96), Skin.LongEringiDown).AddTo(this);

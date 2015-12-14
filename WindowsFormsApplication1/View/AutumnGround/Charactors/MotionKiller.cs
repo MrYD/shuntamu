@@ -44,6 +44,10 @@ namespace shuntamu.View.AutumnGround.Charactors
                     eringiHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringiDownS.png");
                     Size = new Size(32, 32);
                     break;
+                case Skin.LongEringiTrap02:
+                    eringiHandle = DX.LoadGraph(@"../../IWBT素材/ブロック/eringi_L_left02.png");
+                    Size = new Size(32, 32);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("skin", skin, null);
             }
