@@ -52,7 +52,7 @@ namespace shuntamu.View.AutumnGround
             var vanEringi5 = new VanishKiller(new Point(2144, 288), new Point(1952, 256), new Size(32, 96), Skin.LongEringiUp).AddTo(this);
 
 
-            var clearObject1 = new ClearObject(new Point(6016,192)).AddTo(this);
+            //var clearObject1 = new ClearObject(new Point(6016,192)).AddTo(this);
 
             var floor1 = new Rock1(new Point(0,0), new Size(736, 64)).AddTo(this);
             var floor2 = new Rock1(new Point(0,192), new Size(256, 416)).AddTo(this);

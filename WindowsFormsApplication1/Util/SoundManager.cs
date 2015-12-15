@@ -44,7 +44,7 @@ namespace shuntamu.Util
             AddSound("jump", @"../../IWBT素材/音源/sndJump.wav");
             AddSound("blockChange", @"../../IWBT素材/音源/sndBlockChange.wav",80);
             AddSound("death", @"../../IWBT素材/音源/sndDeath.wav");
-            AddSound("save", @"../../IWBT素材/音源/button79.wav");
+            AddSound("save", @"../../IWBT素材/音源/one23.wav");
         }
 
         public static void Play(string name,int playType)
