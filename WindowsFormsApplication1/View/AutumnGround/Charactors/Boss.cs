@@ -11,11 +11,12 @@ namespace shuntamu.View.AutumnGround.Charactors
 {
     class Boss : MotionObject, IKiller, IEnemy
     {
-        private const int maxlife = 10;
+        
+        private const int maxlife = 11;
         private int life = maxlife;
         private Point clearPoint;
         private Point basePoint;
-        private Size baseSize = new Size(150, 150);
+        private Size baseSize = new Size(128, 128);
         public Boss(Point top) : base(top, new Size())
         {
             basePoint = top;
@@ -58,11 +59,7 @@ namespace shuntamu.View.AutumnGround.Charactors
               DX.FALSE);
             DX.DrawString(barmaxtop.X - 5, barmaxtop.Y - 15, "BOSS", DX.GetColor(255, 255, 255));
         }
-        public override void Draw(Point top, Size size)
-        {
-            DX.DrawBox(top.X, top.Y, top.X + size.Width, top.Y + size.Height, DX.GetColor(0, 255, 0), DX.TRUE);
-            drawbar();
-        }
+        
 
         public override void Update(MapBase map)
         {
@@ -70,12 +67,12 @@ namespace shuntamu.View.AutumnGround.Charactors
             {
                 var rand = new Random();
                 var bullet = new BossBullet(new Point(Point.X + rand.Next(-100, 100), Point.Y + rand.Next(-100, 100)));
-                map.AddElement(bullet);
+                //map.AddElement(bullet);
                 map.UpdateElement();
             }
 
-            Size = new Size(Math.Abs((int)(baseSize.Width * Math.Sin(GameTimer.Frame / 50.0))), Math.Abs((int)(baseSize.Height * Math.Sin(GameTimer.Frame / 50.0))));
-            Top = basePoint + new Size((baseSize.Width - Size.Width)/2, (baseSize.Height - Size.Height)/2);
+            //Size = new Size(Math.Abs((int)(baseSize.Width * Math.Sin(GameTimer.Frame / 50.0))), Math.Abs((int)(baseSize.Height * Math.Sin(GameTimer.Frame / 50.0))));
+            //Top = basePoint + new Size((baseSize.Width - Size.Width)/2, (baseSize.Height - Size.Height)/2);
             base.Update(map);
         }
 
@@ -95,10 +92,20 @@ namespace shuntamu.View.AutumnGround.Charactors
         public void Damage()
         {
             life--;
-            if (life < 0)
+            if (life < 1)
             {
+                SoundManager.Play("death",DX.DX_PLAYTYPE_BACK);
                 Death();
             }
+        }
+
+        private int bossHandle = DX.LoadGraph(@"../../IWBT素材/スプライト/sprBigSiratama01.png");
+        public override void Draw(Point top, Size size)
+        {
+            drawbar();
+            int rotaSpeed = life * 5;
+            double radian = GameTimer.Loop(rotaSpeed) * -2 * 3.14;
+            DX.DrawRotaGraph(top.X + size.Width / 2, top.Y + size.Height / 2, 1.0, radian, bossHandle, DX.TRUE);            
         }
     }
 }
