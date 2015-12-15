@@ -14,6 +14,7 @@ namespace shuntamu.View.AutumnGround.Charactors
 
         public VanishBlock(Point top, Size size) : base(top, size)
         {
+            IsSolid = false;
         }
 
 

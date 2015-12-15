@@ -28,6 +28,8 @@ namespace shuntamu.View.AutumnGround
             var eringi16 = new MotionlessKiller(new Point(4544, 480), Skin.EringiUp).AddTo(this);
             var eringi17 = new MotionlessKiller(new Point(3870,224), Skin.LongEringiTrap01).AddTo(this);
 
+            var siratama1 = new Siratama(new Point(1184, 352)).AddTo(this);
+
             var invisBlock1 = new InvisibleBlock(new Point(0, 64)).AddTo(this);
             var invisBlock2 = new InvisibleBlock(new Point(0, 96)).AddTo(this);
             var invisBlock3 = new InvisibleBlock(new Point(0, 128)).AddTo(this);
@@ -139,9 +141,9 @@ namespace shuntamu.View.AutumnGround
             var vanfloor1 = new VanishBlock(new Point(1696, 512), new Size(64, 32)).AddTo(this);
             var vanfloor2 = new VanishBlock(new Point(1760,0),new Size(96,64) ).AddTo(this);
 
-            var movingfloor1 = new MovingFloor(new Point(2726,256),Size).AddTo(this);
-            var movingfloor2 = new MovingFloor(new Point(3136, 480), Size).AddTo(this);
-            var movingfloor3 = new MovingFloor(new Point(3456, 480), Size).AddTo(this);
+            var movingfloor1 = new MovingFloor(new Point(2726,256)).AddTo(this);
+            var movingfloor2 = new MovingFloor(new Point(3136, 480),true).AddTo(this);
+            var movingfloor3 = new MovingFloor(new Point(3456, 480)).AddTo(this);
             var boss = new Boss(new Point(5916, 92)).AddTo(this);
             UpdateElement();
         }

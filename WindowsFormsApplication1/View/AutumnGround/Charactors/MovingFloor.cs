@@ -6,15 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DxLibDLL;
+using shuntamu.Util;
 
 namespace shuntamu.View.AutumnGround
 {
-    class MovingFloor:MotionObject
+    class MovingFloor:MotionObject,IKiller
     {
         private int movingFloorHandle = DX.LoadGraph(@"../../IWBT素材/スプライト/movingObject.png");
 
         private long time =1;
       //  private float ax;
+        private bool vanish;
 
         private long Time
         {
@@ -25,9 +27,18 @@ namespace shuntamu.View.AutumnGround
             }
         }
 
-        public MovingFloor(Point top, Size size) : base(top,new Size(96,16) )
+        public MovingFloor(Point top) : base(top,new Size(96,16) )
+        {           
+        }
+
+        public MovingFloor(Point top,bool van)
+            : base(top, new Size(96, 16))
         {
-           
+            vanish = van;
+            if (vanish)
+            {
+                IsSolid = false;
+            }
         }
 
         public override void Update(MapBase map)
@@ -47,6 +58,16 @@ namespace shuntamu.View.AutumnGround
         public override void Draw(Point top, Size size)
         {
             DX.DrawGraph(top.X, top.Y, movingFloorHandle, DX.TRUE);
+        }
+
+        public void Kill(MapElementBase target)
+        {
+            if (vanish)
+            {
+                IsActive = false;
+                SoundManager.Play("blockChange", DX.DX_PLAYTYPE_BACK);
+                Map.UpdateElement();
+            }
         }
     }
 }
