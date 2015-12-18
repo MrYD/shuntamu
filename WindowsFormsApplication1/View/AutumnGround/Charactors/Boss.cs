@@ -71,9 +71,11 @@ namespace shuntamu.View.AutumnGround.Charactors
             {
                 var rand = new Random();
                 //var bullet = new BossBullet(new Point(Point.X + rand.Next(-100, 100), Point.Y + rand.Next(-100, 100)));
-                var bullet = new BossBullet(new Point(Top.X-16, Top.Y + Size.Height/2));
-                
-                //map.AddElement(bullet);
+                var bullet = new BossBullet(new Point(Top.X-16, Top.Y + rand.Next(96)));
+                if (life != maxlife)
+                {
+                    map.AddElement(bullet);
+                }
                 map.UpdateElement();
             }
 
