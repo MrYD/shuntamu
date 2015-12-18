@@ -11,6 +11,7 @@ namespace shuntamu.View.AutumnGround
             var saveObject1 = new SaveObject(new Point(1408, 480)).AddTo(this);
             var saveObject2 = new SaveObject(new Point(3744, 448)).AddTo(this);
             var saveObject3 = new SaveObject(new Point(2560, 224)).AddTo(this);
+            var saveObject4 = new SaveObject(new Point(5376, 224)).AddTo(this);
 
             var eringi1 = new MotionlessKiller(new Point(448, 224),Skin.EringiUp).AddTo(this);
             var eringi2 = new MotionlessKiller(new Point(800, 480),Skin.EringiUp).AddTo(this);
@@ -144,7 +145,7 @@ namespace shuntamu.View.AutumnGround
             var movingfloor1 = new MovingFloor(new Point(2726,256)).AddTo(this);
             var movingfloor2 = new MovingFloor(new Point(3136, 480),true).AddTo(this);
             var movingfloor3 = new MovingFloor(new Point(3456, 480)).AddTo(this);
-            var boss = new Boss(new Point(5916, 92)).AddTo(this);
+            var boss = new Boss(new Point(6316, 92)).AddTo(this);
             UpdateElement();
         }
     }

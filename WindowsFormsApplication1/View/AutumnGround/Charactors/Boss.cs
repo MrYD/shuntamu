@@ -15,13 +15,17 @@ namespace shuntamu.View.AutumnGround.Charactors
         private const int maxlife = 11;
         private int life = maxlife;
         private Point clearPoint;
+        private Point clearBlockPoint;
+        private Size clearBlockSize;
         private Point basePoint;
-        private Size baseSize = new Size(128, 128);
+        private Size baseSize = new Size(96,96);
         public Boss(Point top) : base(top, new Size())
         {
             basePoint = top;
             this.Size = baseSize;
             clearPoint = top + new Size(100, 100);
+            clearBlockPoint = new Point(6240,256);
+            clearBlockSize = new Size(256,352);
         }
 
         private Point barmaxtop = new Point(750, 380);
@@ -66,7 +70,9 @@ namespace shuntamu.View.AutumnGround.Charactors
             if (GameTimer.Loop(100) == 0 || Input.Instance.Z)
             {
                 var rand = new Random();
-                var bullet = new BossBullet(new Point(Point.X + rand.Next(-100, 100), Point.Y + rand.Next(-100, 100)));
+                //var bullet = new BossBullet(new Point(Point.X + rand.Next(-100, 100), Point.Y + rand.Next(-100, 100)));
+                var bullet = new BossBullet(new Point(Top.X-16, Top.Y + Size.Height/2));
+                
                 //map.AddElement(bullet);
                 map.UpdateElement();
             }
@@ -80,6 +86,7 @@ namespace shuntamu.View.AutumnGround.Charactors
         {
             IsActive = false;
             new ClearObject(clearPoint).AddTo(Map);
+            new Rock1(clearBlockPoint, clearBlockSize).AddTo(Map);
             Map.UpdateElement();
             base.Death();
         }
@@ -92,20 +99,30 @@ namespace shuntamu.View.AutumnGround.Charactors
         public void Damage()
         {
             life--;
+            SoundManager.Play("damage",DX.DX_PLAYTYPE_BACK);
             if (life < 1)
             {
                 SoundManager.Play("death",DX.DX_PLAYTYPE_BACK);
+                SoundManager.Stop("BGM");
                 Death();
             }
         }
 
-        private int bossHandle = DX.LoadGraph(@"../../IWBT素材/スプライト/sprBigSiratama01.png");
+        private int bossHandle1 = DX.LoadGraph(@"../../IWBT素材/スプライト/sprBigSiratama01.png");
+        private int bossHandle2 = DX.LoadGraph(@"../../IWBT素材/スプライト/sprBigSiratama12.png");
         public override void Draw(Point top, Size size)
         {
-            drawbar();
-            int rotaSpeed = life * 5;
-            double radian = GameTimer.Loop(rotaSpeed) * -2 * 3.14;
-            DX.DrawRotaGraph(top.X + size.Width / 2, top.Y + size.Height / 2, 1.0, radian, bossHandle, DX.TRUE);            
+            if (life == maxlife)
+            {
+                DX.DrawGraph(top.X-16, top.Y-16, bossHandle2, DX.TRUE);
+            }
+            else
+            {
+                drawbar();
+                int rotaSpeed = life*5;
+                double radian = GameTimer.Loop(rotaSpeed)*-2*3.14;
+                DX.DrawRotaGraph(top.X + size.Width/2, top.Y + size.Height/2, 1.0, radian, bossHandle1, DX.TRUE);
+            }
         }
     }
 }

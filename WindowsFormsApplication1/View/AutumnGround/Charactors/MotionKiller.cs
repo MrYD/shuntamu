@@ -33,7 +33,7 @@ namespace shuntamu.View.AutumnGround.Charactors
             };
             x = moveX;
             y = moveY;
-
+  
             switch (skin)
             {
                 case Skin.EringiUp:

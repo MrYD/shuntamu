@@ -13,9 +13,10 @@ namespace shuntamu.View.AutumnGround
         private int bulletHandle;
         public BulletBase(Point top, Size size,string path) : base(top, size)
         {
+            IsSolid = false;
             HitEvent += obj =>
             {
-                IsActive = false;
+                IsActive = false;              
             };
             bulletHandle = DX.LoadGraph(path);
         }
